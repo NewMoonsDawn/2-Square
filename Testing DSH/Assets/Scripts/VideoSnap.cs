@@ -1,13 +1,22 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class VideoSnap : MonoBehaviour
 {
     public XRSocketInteractor[] interactors;
-    public GameObject renderButton;
+
+    [Header("Rendering")]
+    public Slider progressSlider;
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI processingText;
+
+    private bool rendered;
+    private bool taskCompleted;
 
     public void CheckIfComplete()
     {
@@ -15,20 +24,20 @@ public class VideoSnap : MonoBehaviour
         {
             if (interactors[i].GetOldestInteractableSelected() == null)
             {
-                // Deactivate Button
-                renderButton.SetActive(false);
+                taskCompleted = false;
                 return;
             }
         }
 
         print("Task completed");
-
-        // Activate Button
-        renderButton.SetActive(true);
+        taskCompleted = true;
+        EditTutorial.instance.NextPhrase();
     }
 
     public void CalculateScore()
     {
+        if (!taskCompleted) return;
+
         // Calculate Score
         for (int i = 0; i < interactors.Length; i++)
         {
@@ -37,5 +46,46 @@ public class VideoSnap : MonoBehaviour
                 GameManager.instance.score++;
             }
         }
+
+        EditTutorial.instance.gameObject.SetActive(false);
+
+        StartCoroutine(RenderVideo());
+    }
+
+    public IEnumerator RenderVideo()
+    {
+        if (rendered) yield break;
+
+        rendered = true;
+
+        YieldInstruction waitForFixedUpdate = new WaitForFixedUpdate();
+
+        float progress = 0;
+        progressSlider.gameObject.SetActive(true);
+        scoreText.gameObject.SetActive(true);
+
+        for (int i = 0; i < interactors.Length; i++)
+            interactors[i].socketActive = false;
+
+        while (progress < 1)
+        {
+            progress += .2f * Time.fixedDeltaTime;
+            progressSlider.value = progress;
+            yield return waitForFixedUpdate;
+        }
+
+        string keyword = "";
+
+        // Calculate score
+        switch (GameManager.instance.score)
+        {
+            case 0: keyword = "Poor..."; break;
+            case 1: keyword = "Decent."; break;
+            case 2: keyword = "Good!"; break;
+            case 3: keyword = "Amazing!!!"; break;
+        }
+
+        processingText.text = "Done!";
+        scoreText.text = "Video Quality is " + keyword;
     }
 }
