@@ -1,5 +1,9 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/TakePhoto.unity
+=======
+- path: Assets/Scenes/DSH Floor 1.unity
+>>>>>>> vlad
   isLoaded: 1
   isActive: 1
   isSubScene: 0
