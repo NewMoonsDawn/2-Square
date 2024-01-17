@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: 1b8d251f9af63b746bf2f7ffe00ebb9b
+<<<<<<<< HEAD:Testing DSH/Assets/TextMesh Pro/Documentation/TextMesh Pro User Guide 2016.pdf.meta
+guid: 1bed51f122770d54aa8f70c83b9fbd07
+========
+guid: 14f80190983f27b49a077ceeae1a3db8
+>>>>>>>> vlad:Testing DSH/Assets/Scenes/DSH Floor 1.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

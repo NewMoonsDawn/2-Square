@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: 88eee77703e0c5c44b57d82beca88e25
+<<<<<<<< HEAD:Testing DSH/Assets/New Material.mat.meta
+guid: a496cab78cad22d4e900f6cca02b55be
+========
+guid: 3765f22f626143247b6e9ee4dfb1da93
+>>>>>>>> vlad:Testing DSH/Assets/Scenes/New Material 3.mat.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 2100000
