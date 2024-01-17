@@ -12,24 +12,34 @@ public class TaskManager : MonoBehaviour
     private int currentTasks = 0;
     [SerializeField]
     private int expectedTasks = 3;
+
     private List<Task> tasksList = new List<Task>();
     private List<Task> tasks = new List<Task>();
 
     public TMP_Text uiText;
 
-    private string task1;
+   /* private string task1;
     private string task2;
     private string task3;
     private string task4;
+*/
+    private string[] taskTexts;
 
     private Task task;
     void Start()
     {
-        tasksList.Add(new Task(90f, "Example1", "Desc1", 100f));
-        tasksList.Add(new Task(90f, "Example2", "Desc2", 100f));
-        tasksList.Add(new Task(90f, "Example3", "Desc3", 100f));
-        tasksList.Add(new Task(90f, "Example4", "Desc4", 100f));
-        tasksList.Add(new Task(90f, "Example5", "Desc5", 100f));
+        taskTexts = new string[expectedTasks];
+        for(int i =0;i<expectedTasks;i++)
+        {
+            taskTexts[i] = "";
+        }
+
+        tasksList.Add(new Task(15f, "Example1", "Desc1", 100f));
+        tasksList.Add(new Task(12f, "Example2", "Desc2", 100f));
+        tasksList.Add(new Task(11f, "Example3", "Desc3", 100f));
+        tasksList.Add(new Task(14f, "Example4", "Desc4", 100f));
+        tasksList.Add(new Task(16f, "Example5", "Desc5", 100f));
+        tasksList.Add(new Task(9f, "Example6", "Desc6", 100f));
 
         uiText.text = "";
     }
@@ -37,39 +47,85 @@ public class TaskManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if(currentTasks < expectedTasks)
+        //TODO THIS MATH WHY IS IT NOT CLICKING
+        currentTasks = tasks.Count;
+      // if(tasksList.Count<expectedTasks-1)
+       // {
+         //   expectedTasks = tasksList.Count;
+       //}    
+
+        
+       if(currentTasks < expectedTasks && tasksList.Count !=0)
         {
-            int random = UnityEngine.Random.Range(0,tasksList.Count-1);
-            Debug.Log(random.ToString());
+            int random = UnityEngine.Random.Range(0,tasksList.Count);
             task = tasksList[random];
             tasks.Add(task);
             tasksList.RemoveAt(random);
                 
-            switch (currentTasks+1)
+            /*switch (currentTasks+1)
             {
                 case 1:
                     {
-                        task1 = task.getName() + ": " + task.getDescription();
+                        taskTexts[0] = task.getName() + ": " + task.getDescription();
                         break;
                     }
                 case 2:
                     {
-                        task2= task.getName() + ": " + task.getDescription();
+                        taskTexts[1]= task.getName() + ": " + task.getDescription();
                         break;
                     }
                     case 3:
                     {
-                        task3 = task.getName() + ": " + task.getDescription();
+                        taskTexts[2] = task.getName() + ": " + task.getDescription();
                         break;
                     }
                     case 4:
                     {
-                        task4 = task.getName() + ": " + task.getDescription();
+                        taskTexts[3] = task.getName() + ": " + task.getDescription();
                         break;
                     }
-            }
+            }*/
             currentTasks++;
         }
-        uiText.text = task1 + System.Environment.NewLine + task2 + System.Environment.NewLine + task3 + System.Environment.NewLine + task4;
+
+       for(int i = 0; i < tasks.Count; i++)
+        {
+            
+            tasks[i].setTime(tasks[i].getTime() - Time.deltaTime);
+            if (tasks[i].getTime()<=0f)
+            {
+                Debug.Log(tasks[i].getName());
+                tasks.RemoveAt(i);
+            }
+        }
+        
+       switch(tasks.Count)
+        { 
+            case 0:
+                {
+                    uiText.text = "You've completed all your tasks for the day! Sit back and relax!";
+                    break;
+                }
+            case 1:
+                {
+                    uiText.text = uiText.text = tasks[0].getName() + " : " + tasks[0].getDescription() + string.Format(" {0}:{1}", Mathf.FloorToInt(tasks[0].getTime() / 60).ToString(), Mathf.FloorToInt(tasks[0].getTime() % 60).ToString());
+                    break;
+                }
+            case 2:
+                {
+                    uiText.text = tasks[0].getName() + " : " + tasks[0].getDescription() + string.Format(" {0}:{1}", Mathf.FloorToInt(tasks[0].getTime() / 60).ToString(), Mathf.FloorToInt(tasks[0].getTime() % 60).ToString())
+            + System.Environment.NewLine + tasks[1].getName() + " : " + tasks[1].getDescription() + string.Format(" {0}:{1}", Mathf.FloorToInt(tasks[1].getTime() / 60).ToString(), Mathf.FloorToInt(tasks[1].getTime() % 60).ToString());
+                    break;
+                }
+            case 3:
+                {
+                    uiText.text = tasks[0].getName() + " : " + tasks[0].getDescription() + string.Format(" {0}:{1}", Mathf.FloorToInt(tasks[0].getTime() / 60).ToString(), Mathf.FloorToInt(tasks[0].getTime() % 60).ToString())
+            + System.Environment.NewLine + tasks[1].getName() + " : " + tasks[1].getDescription() + string.Format(" {0}:{1}", Mathf.FloorToInt(tasks[1].getTime() / 60).ToString(), Mathf.FloorToInt(tasks[1].getTime() % 60).ToString())
+            + System.Environment.NewLine + tasks[2].getName() + " : " + tasks[2].getDescription() + string.Format(" {0}:{1}", Mathf.FloorToInt(tasks[2].getTime() / 60).ToString(), Mathf.FloorToInt(tasks[2].getTime() % 60).ToString());
+                    break;
+                }
+        
+        }
+        
     }
 }

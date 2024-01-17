@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Task.cs" />
+    <Compile Include="Assets\MeetingBehaviour.cs" />
     <Compile Include="Assets\TaskManager.cs" />
   </ItemGroup>
   <ItemGroup>
