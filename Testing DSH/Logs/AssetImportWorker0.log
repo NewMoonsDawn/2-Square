@@ -1,10 +1,6 @@
 Using pre-set license
 Built from '2022.3/staging' branch; Version is '2022.3.4f1 (35713cd46cd7) revision 3502396'; Using compiler version '192829333'; Build Type 'Release'
-<<<<<<< HEAD
 OS: 'Windows 10  (10.0.19045) 64bit Professional' Language: 'en' Physical Memory: 15790 MB
-=======
-OS: 'Windows 10  (10.0.19045) 64bit Professional' Language: 'en' Physical Memory: 31895 MB
->>>>>>> vlad
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
 
 COMMAND LINE ARGUMENTS:
@@ -15,7 +11,6 @@ C:\Program Files\Unity\Hub\Editor\2022.3.4f1\Editor\Unity.exe
 -name
 AssetImportWorker0
 -projectPath
-<<<<<<< HEAD
 C:/Users/Asus/2-Square/Testing DSH
 -logFile
 Logs/AssetImportWorker0.log
@@ -23,15 +18,6 @@ Logs/AssetImportWorker0.log
 61279
 Successfully changed project path to: C:/Users/Asus/2-Square/Testing DSH
 C:/Users/Asus/2-Square/Testing DSH
-=======
-C:/Users/elite/Documents/GitHub/2-Square/Testing DSH
--logFile
-Logs/AssetImportWorker0.log
--srvPort
-58001
-Successfully changed project path to: C:/Users/elite/Documents/GitHub/2-Square/Testing DSH
-C:/Users/elite/Documents/GitHub/2-Square/Testing DSH
->>>>>>> vlad
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
     "memorysetup-bucket-allocator-granularity=16"
     "memorysetup-bucket-allocator-bucket-count=8"
@@ -63,7 +49,6 @@ C:/Users/elite/Documents/GitHub/2-Square/Testing DSH
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-<<<<<<< HEAD
 Player connection [19320] Host "[IP] 192.168.56.1 [Port] 0 [Flags] 2 [Guid] 2131779991 [EditorId] 2131779991 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-K7K99FE) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
 Player connection [19320] Host "[IP] 192.168.56.1 [Port] 0 [Flags] 2 [Guid] 2131779991 [EditorId] 2131779991 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-K7K99FE) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
@@ -80,37 +65,14 @@ Direct3D:
     Vendor:   NVIDIA
     VRAM:     3977 MB
     Driver:   31.0.15.4633
-=======
-Player connection [21056] Host "[IP] 192.168.178.103 [Port] 0 [Flags] 2 [Guid] 1304489413 [EditorId] 1304489413 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-N9G45D6) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
-
-Player connection [21056] Host "[IP] 192.168.178.103 [Port] 0 [Flags] 2 [Guid] 1304489413 [EditorId] 1304489413 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-N9G45D6) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
-
-Refreshing native plugins compatible for Editor in 8.53 ms, found 6 plugins.
-Preloading 1 native plugins for Editor in 0.67 ms.
-Initialize engine version: 2022.3.4f1 (35713cd46cd7)
-[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.4f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/elite/Documents/GitHub/2-Square/Testing DSH/Assets
-GfxDevice: creating device client; threaded=0; jobified=0
-Direct3D:
-    Version:  Direct3D 11.0 [level 11.1]
-    Renderer: AMD Radeon RX 6600 XT (ID=0x73ff)
-    Vendor:   ATI
-    VRAM:     8146 MB
-    Driver:   31.0.23013.3005
->>>>>>> vlad
 Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.4f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.4f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.4f1/Editor/Data/MonoBleedingEdge/etc'
-<<<<<<< HEAD
 Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56028
-=======
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56400
->>>>>>> vlad
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.4f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-<<<<<<< HEAD
 Registered in 0.011710 seconds.
 - Loaded All Assemblies, in  0.419 seconds
 Native extension for WindowsStandalone target not found
@@ -118,23 +80,11 @@ Mono: successfully reloaded assembly
 - Finished resetting the current domain, in  0.311 seconds
 Domain Reload Profiling: 726ms
 	BeginReloadAssembly (109ms)
-=======
-Registered in 0.008996 seconds.
-- Loaded All Assemblies, in  0.245 seconds
-Native extension for WindowsStandalone target not found
-Native extension for Android target not found
-Android Extension - Scanning For ADB Devices 205 ms
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.436 seconds
-Domain Reload Profiling: 680ms
-	BeginReloadAssembly (62ms)
->>>>>>> vlad
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-<<<<<<< HEAD
 	RebuildCommonClasses (42ms)
 	RebuildNativeTypeToScriptingClass (14ms)
 	initialDomainReloadingComplete (74ms)
@@ -157,30 +107,6 @@ Domain Reload Profiling: 680ms
 			BeforeProcessingInitializeOnLoad (3ms)
 			ProcessInitializeOnLoadAttributes (164ms)
 			ProcessInitializeOnLoadMethodAttributes (57ms)
-=======
-	RebuildCommonClasses (24ms)
-	RebuildNativeTypeToScriptingClass (8ms)
-	initialDomainReloadingComplete (46ms)
-	LoadAllAssembliesAndSetupDomain (104ms)
-		LoadAssemblies (61ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (99ms)
-			TypeCache.Refresh (98ms)
-				TypeCache.ScanAssembly (90ms)
-			ScanForSourceGeneratedMonoScriptInfo (0ms)
-			ResolveRequiredComponents (0ms)
-	FinalizeReload (437ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (398ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (293ms)
-			SetLoadedEditorAssemblies (3ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (1ms)
-			ProcessInitializeOnLoadAttributes (68ms)
-			ProcessInitializeOnLoadMethodAttributes (32ms)
->>>>>>> vlad
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -188,17 +114,10 @@ Domain Reload Profiling: 680ms
 ========================================================================
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
-<<<<<<< HEAD
 Symbol file LoadedFromMemory doesn't match image C:\Users\Asus\2-Square\Testing DSH\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image C:\Users\Asus\2-Square\Testing DSH\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 - Loaded All Assemblies, in  1.127 seconds
 Refreshing native plugins compatible for Editor in 10.80 ms, found 6 plugins.
-=======
-Symbol file LoadedFromMemory doesn't match image C:\Users\elite\Documents\GitHub\2-Square\Testing DSH\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\elite\Documents\GitHub\2-Square\Testing DSH\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-- Loaded All Assemblies, in  0.552 seconds
-Refreshing native plugins compatible for Editor in 4.07 ms, found 6 plugins.
->>>>>>> vlad
 Native extension for WindowsStandalone target not found
 Package Manager log level set to [2]
 [Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
@@ -229,7 +148,6 @@ Mono: successfully reloaded assembly
 [Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
-<<<<<<< HEAD
 - Finished resetting the current domain, in  0.781 seconds
 Domain Reload Profiling: 1902ms
 	BeginReloadAssembly (188ms)
@@ -271,49 +189,6 @@ Unloading 4245 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 49 unused Assets / (57.8 KB). Loaded Objects now: 4712.
 Memory consumption went from 146.5 MB to 146.4 MB.
 Total: 5.113600 ms (FindLiveObjects: 0.670600 ms CreateObjectMapping: 0.474100 ms MarkObjects: 3.754400 ms  DeleteObjects: 0.212400 ms)
-=======
-- Finished resetting the current domain, in  0.456 seconds
-Domain Reload Profiling: 1006ms
-	BeginReloadAssembly (100ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (4ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (21ms)
-	RebuildCommonClasses (22ms)
-	RebuildNativeTypeToScriptingClass (8ms)
-	initialDomainReloadingComplete (31ms)
-	LoadAllAssembliesAndSetupDomain (388ms)
-		LoadAssemblies (200ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (231ms)
-			TypeCache.Refresh (212ms)
-				TypeCache.ScanAssembly (202ms)
-			ScanForSourceGeneratedMonoScriptInfo (15ms)
-			ResolveRequiredComponents (4ms)
-	FinalizeReload (456ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (335ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (18ms)
-			SetLoadedEditorAssemblies (4ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (54ms)
-			ProcessInitializeOnLoadAttributes (233ms)
-			ProcessInitializeOnLoadMethodAttributes (20ms)
-			AfterProcessingInitializeOnLoad (6ms)
-			EditorAssembliesLoaded (0ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (5ms)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
-Refreshing native plugins compatible for Editor in 4.28 ms, found 6 plugins.
-Preloading 1 native plugins for Editor in 0.07 ms.
-Unloading 4230 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 49 unused Assets / (57.8 KB). Loaded Objects now: 4700.
-Memory consumption went from 147.6 MB to 147.6 MB.
-Total: 2.595500 ms (FindLiveObjects: 0.302100 ms CreateObjectMapping: 0.155800 ms MarkObjects: 2.054700 ms  DeleteObjects: 0.082300 ms)
->>>>>>> vlad
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
@@ -327,7 +202,6 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
-<<<<<<< HEAD
 Received Prepare
 Refreshing native plugins compatible for Editor in 9.28 ms, found 6 plugins.
 Preloading 1 native plugins for Editor in 0.09 ms.
@@ -335,23 +209,6 @@ Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 1 unused Assets / (3.0 KB). Loaded Objects now: 4712.
 Memory consumption went from 76.9 MB to 76.9 MB.
 Total: 3.622700 ms (FindLiveObjects: 0.360400 ms CreateObjectMapping: 0.184800 ms MarkObjects: 3.050900 ms  DeleteObjects: 0.025400 ms)
-=======
-Received Import Request.
-  Time since last request: 176848.056193 seconds.
-  path: Assets/Scenes/New Material 3.mat
-  artifactKey: Guid(3765f22f626143247b6e9ee4dfb1da93) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/New Material 3.mat using Guid(3765f22f626143247b6e9ee4dfb1da93) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0e6e331d62d84edef34ffd75de0da94c') in 0.057069 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Prepare
-Refreshing native plugins compatible for Editor in 3.48 ms, found 6 plugins.
-Preloading 1 native plugins for Editor in 0.05 ms.
-Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 1 unused Assets / (0.8 KB). Loaded Objects now: 4741.
-Memory consumption went from 80.3 MB to 80.3 MB.
-Total: 3.063400 ms (FindLiveObjects: 0.232500 ms CreateObjectMapping: 0.150700 ms MarkObjects: 2.663800 ms  DeleteObjects: 0.015900 ms)
->>>>>>> vlad
 
 Prepare: number of updated asset objects reloaded= 0
 AssetImportParameters requested are different than current active one (requested -> active):
@@ -368,34 +225,9 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-<<<<<<< HEAD
   Time since last request: 417594.624784 seconds.
   path: Assets/TaskManager.cs
   artifactKey: Guid(d12008a94b7007741bc318e5a853cc60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/TaskManager.cs using Guid(d12008a94b7007741bc318e5a853cc60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8227e7c4924e68026817e912679a7ae5') in 0.003044 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 0
-=======
-  Time since last request: 49.888966 seconds.
-  path: Assets/XRI
-  artifactKey: Guid(ab19d231d99787f47a5b13a75dde78bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/XRI using Guid(ab19d231d99787f47a5b13a75dde78bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd941dc7d82ff34a4f2a88bb32362deab') in 0.000474 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 1.377232 seconds.
-  path: Assets/Models/IMG_5805.png
-  artifactKey: Guid(5c6b3fb225444ed41b44b40014d481ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/IMG_5805.png using Guid(5c6b3fb225444ed41b44b40014d481ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '292ecadd5990c106ad4247626cf89731') in 0.014742 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 31.161204 seconds.
-  path: Assets/IMG_5804.jpg
-  artifactKey: Guid(f6e47d355d47aef4ebb4fb96df99c111) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/IMG_5804.jpg using Guid(f6e47d355d47aef4ebb4fb96df99c111) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ab7fb72f328914fbbd56fd2b5c21ebc9') in 0.008832 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
->>>>>>> vlad

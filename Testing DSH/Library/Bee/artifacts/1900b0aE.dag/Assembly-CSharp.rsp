@@ -369,16 +369,9 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.XR.LegacyInputHelpers.ref.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.4f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.4f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
-<<<<<<< HEAD
 "Assets/MeetingBehaviour.cs"
 "Assets/Task.cs"
 "Assets/TaskManager.cs"
-=======
-"Assets/Scripts/EditingBlock.cs"
-"Assets/Scripts/EditingZone.cs"
-"Assets/Scripts/GameManager.cs"
-"Assets/Scripts/VideoSnap.cs"
->>>>>>> vlad
 -langversion:9.0
 
 /deterministic
