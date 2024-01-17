@@ -1,5 +1,1 @@
-<<<<<<< HEAD
 C:\Users\Andrey\Desktop\GithubRepos\2-Square\Testing DSH
-=======
-C:\Users\Asus\2-Square\Testing DSH
->>>>>>> Luna
