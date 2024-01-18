@@ -19,7 +19,7 @@ public class ScreenshotCamera : MonoBehaviour
 
 #if UNITY_EDITOR
         // Empty out screenshots folder when the game starts
-        string[] files = System.IO.Directory.GetFiles(Application.dataPath + "/CameraScreenshots/");
+        string[] files = System.IO.Directory.GetFiles(Application.dataPath + "/Resources/CameraScreenshots/");
 
         if (files.Length > 0)
         {
@@ -45,10 +45,10 @@ public class ScreenshotCamera : MonoBehaviour
         // Does the ray intersect any objects excluding the player layer
         if (Physics.Raycast(raycastShootPoint.position, raycastShootPoint.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, relevantMask))
         {
-            string screenshotName = hit.transform.gameObject.name + ".png";
+            string screenshotName = "photo" + hit.transform.name + ".png";
 
             // If folder contains a screenshot with this name - screenshot is already taken
-            string[] files = System.IO.Directory.GetFiles(Application.dataPath + "/CameraScreenshots/");
+            string[] files = System.IO.Directory.GetFiles(Application.dataPath + "/Resources/CameraScreenshots/");
 
             if (files.Length > 0)
             {
@@ -75,7 +75,7 @@ public class ScreenshotCamera : MonoBehaviour
             RenderTexture.active = tabletRender; // JC: added to avoid errors
             Destroy(rt);
             byte[] bytes = screenShot.EncodeToPNG();
-            string filename = Application.dataPath + "/CameraScreenshots/" + screenshotName;
+            string filename = Application.dataPath + "/Resources/CameraScreenshots/" + screenshotName;
             System.IO.File.WriteAllBytes(filename, bytes);
             Debug.Log(string.Format("Took screenshot to: {0}", filename));
         }

@@ -2349,9 +2349,9 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 3578677821545499125}
   - {fileID: 6479997958112233594}
   - {fileID: 1847508701}
-  - {fileID: 3578677821545499125}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2443,7 +2443,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 27f49080a7f196d40ad187ae620ec3ec, type: 2}
-  - {fileID: 2100000, guid: cd539956425b2ec41af405212f85ca97, type: 2}
+  - {fileID: 2100000, guid: 27f49080a7f196d40ad187ae620ec3ec, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3478,6 +3478,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f068a5a3ad8b274e8ae5c5e8a6e674a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  photosTaken:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   interactors:
   - {fileID: 71486862}
   - {fileID: 391023831}
@@ -5400,8 +5405,8 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5596956727988435195}
   - {fileID: 2133226727}
+  - {fileID: 5596956727988435195}
   - {fileID: 58567357}
   - {fileID: 3581085990741171811}
   m_Father: {fileID: 0}

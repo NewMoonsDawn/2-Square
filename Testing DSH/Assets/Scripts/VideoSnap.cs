@@ -8,6 +8,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class VideoSnap : MonoBehaviour
 {
+    public Texture2D[] photosTaken = new Texture2D[4];
     public XRSocketInteractor[] interactors;
 
     [Header("Rendering")]
@@ -17,6 +18,19 @@ public class VideoSnap : MonoBehaviour
 
     private bool rendered;
     private bool taskCompleted;
+
+    private void Awake()
+    {
+        FindScreenshotTextures();
+    }
+
+    void FindScreenshotTextures()
+    {
+        for (int i = 0; i < photosTaken.Length; i++)
+        {
+            photosTaken[i] = Resources.Load<Texture2D>("CameraScreenshots/photo" + i);
+        }
+    }
 
     public void CheckIfComplete()
     {
