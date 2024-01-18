@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: 93f4f229380c5044094065fdce52d2fc
+<<<<<<<< HEAD:Testing DSH/Assets/Models/Bike.fbx.meta
+guid: e4e5f9d41890585469f3347d8703e1cd
+========
+guid: e85ecc53ff6578e47b06a36f5a18e31a
+>>>>>>>> Andrey:Testing DSH/Assets/Models/Tasks/Cup.fbx.meta
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []

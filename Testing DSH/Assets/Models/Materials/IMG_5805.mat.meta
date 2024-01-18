@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: fbb60912f2517f14e9cf6a26035e7536
+<<<<<<<< HEAD:Testing DSH/Assets/Models/Materials/IMG_5805.mat.meta
+guid: 924b271d698987b4686c9e95378132ab
+========
+guid: 46d6660236d04894e8a6f7360c0f688a
+>>>>>>>> Andrey:Testing DSH/Assets/Materials/Transparent.mat.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 2100000

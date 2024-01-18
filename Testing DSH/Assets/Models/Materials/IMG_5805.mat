@@ -7,12 +7,20 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<<< HEAD:Testing DSH/Assets/Models/Materials/IMG_5805.mat
   m_Name: IMG_5805
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _ALPHAPREMULTIPLY_ON
+========
+  m_Name: Gray
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+>>>>>>>> Andrey:Testing DSH/Assets/Materials/Gray.mat
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -87,7 +95,12 @@ Material:
     - _UseUIAlphaClip: 0
     - _ZWrite: 0
     m_Colors:
+<<<<<<<< HEAD:Testing DSH/Assets/Models/Materials/IMG_5805.mat
     - _Color: {r: 1, g: 1, b: 1, a: 0.49803922}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Specular: {r: 0, g: 0, b: 0, a: 0}
+========
+    - _Color: {r: 0.60481757, g: 0.6015664, b: 0.6415094, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+>>>>>>>> Andrey:Testing DSH/Assets/Materials/Gray.mat
   m_BuildTextureStacks: []

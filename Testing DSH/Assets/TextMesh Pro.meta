@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: f54d1bd14bd3ca042bd867b519fee8cc
+<<<<<<<< HEAD:Testing DSH/Assets/TextMesh Pro.meta
+guid: 68d1d422597ee0b43b62cc46b6346dd2
+========
+guid: 6a372349c1718eb47a40f2051e4f7ad5
+>>>>>>>> Andrey:Testing DSH/Assets/Models/Props.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Testing DSH/Assets/Task.cs.meta
+guid: fc0aa673cc49e8f4088db08e0bee7098
+========
+guid: 1aebfe735a279c445b6a4732ad71e113
+>>>>>>>> Andrey:Testing DSH/Assets/Cup.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

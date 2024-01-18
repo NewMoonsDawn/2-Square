@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: 8eabf8a197aefe848853b7a43ba2ba8f
+<<<<<<<< HEAD:Testing DSH/Assets/Scenes/DSH Map Floor 2.unity.meta
+guid: de3a1b1604dfaee4799cbe5ce06c13cd
+========
+guid: 9d7429d01b2369f43b60287b21d39fd0
+>>>>>>>> Andrey:Testing DSH/Assets/Scenes/Alarm.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

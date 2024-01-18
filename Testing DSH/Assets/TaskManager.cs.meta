@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: d12008a94b7007741bc318e5a853cc60
+<<<<<<<< HEAD:Testing DSH/Assets/TaskManager.cs.meta
+guid: 0c1815ccd2e7c864184efd9f327e49ce
+========
+guid: 4858d175f33e8654bb19e26794b656b5
+>>>>>>>> Andrey:Testing DSH/Assets/EditTutorial.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

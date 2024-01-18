@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: d738985a523bfd74fb82ab6650fe9414
+<<<<<<<< HEAD:Testing DSH/Assets/Task.cs.meta
+guid: 47b8d9be71197c54394e1e863def6578
+========
+guid: 1aebfe735a279c445b6a4732ad71e113
+>>>>>>>> Andrey:Testing DSH/Assets/Cup.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

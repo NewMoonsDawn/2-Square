@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: 63d008be9d75fd1448a32bd1cd1d9264
+<<<<<<<< HEAD:Testing DSH/Assets/MeetingBehaviour.cs.meta
+guid: bcb5b872aa6a6b442a06ce136779cf08
+========
+guid: 3e62612d24181194f968f3b175b0e5f1
+>>>>>>>> Andrey:Testing DSH/Assets/Coffee.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

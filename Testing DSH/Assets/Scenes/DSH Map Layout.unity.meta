@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: a17b8d98cb1097041bd355e823f47975
+<<<<<<<< HEAD:Testing DSH/Assets/Scenes/DSH Map Layout.unity.meta
+guid: 7d041f0444e2519449f005e4e5529092
+========
+guid: 6e04dc43e71b19c42ad8076ff4723580
+>>>>>>>> Andrey:Testing DSH/Assets/Scenes/Coffee.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
