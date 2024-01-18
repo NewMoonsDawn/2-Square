@@ -17,6 +17,7 @@ public class ScreenshotCamera : MonoBehaviour
     {
         cam = GetComponent<Camera>();
 
+#if UNITY_EDITOR
         // Empty out screenshots folder when the game starts
         string[] files = System.IO.Directory.GetFiles(Application.dataPath + "/CameraScreenshots/");
 
@@ -24,12 +25,13 @@ public class ScreenshotCamera : MonoBehaviour
         {
             foreach (string file in files)
             {
+                // FileUtil exists only in the editor
                 FileUtil.DeleteFileOrDirectory(file);
                 print("Deleting" + file);
             }
         }
+#endif
     }
-
 
     void Update()
     {
