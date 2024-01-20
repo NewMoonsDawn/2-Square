@@ -34,7 +34,7 @@ public class Cup : MonoBehaviour
             fill = 100; 
             if (!filled)
             {
-                print("Got points for filling cup"); // Replace with actual score
+                UpdateScore(250f);
                 filled = true;
             }
 
@@ -42,5 +42,11 @@ public class Cup : MonoBehaviour
         }
 
         fill += amount;
+    }
+
+    public void UpdateScore(float score)
+    {
+        PlayerPrefs.SetFloat("score", PlayerPrefs.GetFloat("score") + score);
+        Debug.Log(PlayerPrefs.GetFloat("score"));
     }
 }

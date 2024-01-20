@@ -9,6 +9,7 @@ public class TaskManager : MonoBehaviour
 {
     // Start is called before the first frame update
 
+
     private int currentTasks = 0;
     [SerializeField]
     private int expectedTasks = 3;
@@ -16,8 +17,9 @@ public class TaskManager : MonoBehaviour
     private List<Task> tasksList = new List<Task>();
     private List<Task> tasks = new List<Task>();
 
-    public TMP_Text uiText;
+    public TMP_Text taskText;
 
+    public TMP_Text scoreText;
    /* private string task1;
     private string task2;
     private string task3;
@@ -28,6 +30,8 @@ public class TaskManager : MonoBehaviour
     private Task task;
     void Start()
     {
+
+        Debug.Log(PlayerPrefs.GetString("name"));
         taskTexts = new string[expectedTasks];
         for(int i =0;i<expectedTasks;i++)
         {
@@ -41,13 +45,14 @@ public class TaskManager : MonoBehaviour
         tasksList.Add(new Task(16f, "Example5", "Desc5", 100f));
         tasksList.Add(new Task(9f, "Example6", "Desc6", 100f));
 
-        uiText.text = "";
+        taskText.text = "";
     }
 
     // Update is called once per frame
     void Update()
     {
-        //TODO THIS MATH WHY IS IT NOT CLICKING
+
+        scoreText.text = "Score: " + PlayerPrefs.GetFloat("score").ToString();
         currentTasks = tasks.Count;
       // if(tasksList.Count<expectedTasks-1)
        // {
@@ -103,23 +108,23 @@ public class TaskManager : MonoBehaviour
         { 
             case 0:
                 {
-                    uiText.text = "You've completed all your tasks for the day! Sit back and relax!";
+                    taskText.text = "You've completed all your tasks for the day! Sit back and relax!";
                     break;
                 }
             case 1:
                 {
-                    uiText.text = uiText.text = tasks[0].getName() + " : " + tasks[0].getDescription() + string.Format(" {0}:{1}", Mathf.FloorToInt(tasks[0].getTime() / 60).ToString(), Mathf.FloorToInt(tasks[0].getTime() % 60).ToString());
+                    taskText.text = taskText.text = tasks[0].getName() + " : " + tasks[0].getDescription() + string.Format(" {0}:{1}", Mathf.FloorToInt(tasks[0].getTime() / 60).ToString(), Mathf.FloorToInt(tasks[0].getTime() % 60).ToString());
                     break;
                 }
             case 2:
                 {
-                    uiText.text = tasks[0].getName() + " : " + tasks[0].getDescription() + string.Format(" {0}:{1}", Mathf.FloorToInt(tasks[0].getTime() / 60).ToString(), Mathf.FloorToInt(tasks[0].getTime() % 60).ToString())
+                    taskText.text = tasks[0].getName() + " : " + tasks[0].getDescription() + string.Format(" {0}:{1}", Mathf.FloorToInt(tasks[0].getTime() / 60).ToString(), Mathf.FloorToInt(tasks[0].getTime() % 60).ToString())
             + System.Environment.NewLine + tasks[1].getName() + " : " + tasks[1].getDescription() + string.Format(" {0}:{1}", Mathf.FloorToInt(tasks[1].getTime() / 60).ToString(), Mathf.FloorToInt(tasks[1].getTime() % 60).ToString());
                     break;
                 }
             case 3:
                 {
-                    uiText.text = tasks[0].getName() + " : " + tasks[0].getDescription() + string.Format(" {0}:{1}", Mathf.FloorToInt(tasks[0].getTime() / 60).ToString(), Mathf.FloorToInt(tasks[0].getTime() % 60).ToString())
+                    taskText.text = tasks[0].getName() + " : " + tasks[0].getDescription() + string.Format(" {0}:{1}", Mathf.FloorToInt(tasks[0].getTime() / 60).ToString(), Mathf.FloorToInt(tasks[0].getTime() % 60).ToString())
             + System.Environment.NewLine + tasks[1].getName() + " : " + tasks[1].getDescription() + string.Format(" {0}:{1}", Mathf.FloorToInt(tasks[1].getTime() / 60).ToString(), Mathf.FloorToInt(tasks[1].getTime() % 60).ToString())
             + System.Environment.NewLine + tasks[2].getName() + " : " + tasks[2].getDescription() + string.Format(" {0}:{1}", Mathf.FloorToInt(tasks[2].getTime() / 60).ToString(), Mathf.FloorToInt(tasks[2].getTime() % 60).ToString());
                     break;

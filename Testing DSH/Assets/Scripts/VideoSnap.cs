@@ -19,6 +19,8 @@ public class VideoSnap : MonoBehaviour
     private bool rendered;
     private bool taskCompleted;
 
+    private float scorePoints = 0f;
+
     private void Awake()
     {
         FindScreenshotTextures();
@@ -57,7 +59,7 @@ public class VideoSnap : MonoBehaviour
         {
             if (interactors[i].GetComponent<EditingZone>().index == interactors[i].GetOldestInteractableSelected().transform.GetComponent<EditingBlock>().index)
             {
-                GameManager.instance.score++;
+                UpdateScore(100f);
             }
         }
 
@@ -93,13 +95,20 @@ public class VideoSnap : MonoBehaviour
         // Calculate score
         switch (GameManager.instance.score)
         {
-            case 0: keyword = "Poor..."; break;
-            case 1: keyword = "Decent."; break;
-            case 2: keyword = "Good!"; break;
-            case 3: keyword = "Amazing!!!"; break;
+            case 0: keyword = "Poor..."; scorePoints = 200f; break;
+            case 1: keyword = "Decent."; scorePoints = 350f; break;
+            case 2: keyword = "Good!"; scorePoints = 500f; break;
+            case 3: keyword = "Amazing!!!"; scorePoints = 1000f; break;
         }
 
         processingText.text = "Done!";
         scoreText.text = "Video Quality is " + keyword;
+        UpdateScore(scorePoints);
+    }
+
+    public void UpdateScore(float score)
+    {
+        PlayerPrefs.SetFloat("score", PlayerPrefs.GetFloat("score") + score);
+        Debug.Log(PlayerPrefs.GetFloat("score"));
     }
 }
