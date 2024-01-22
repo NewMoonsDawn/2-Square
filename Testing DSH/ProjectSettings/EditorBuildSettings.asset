@@ -11,6 +11,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Coffee.unity
+    guid: cb83c711544a3544d996f1dc7dcc4ef1
+  - enabled: 1
+    path: Assets/Scenes/TakePhoto.unity
+    guid: 65b5733aa5656914bb0f8a7371e8e161
+  - enabled: 1
+    path: Assets/Scenes/VideoEdit.unity
+    guid: 6a83edcd93f3ec6479c47eb2202f86c8
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: d713754bf3fb37144a7aa57ebd6deca3, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 099e6ba676ecf654395c524b1d5aeaf9, type: 2}
