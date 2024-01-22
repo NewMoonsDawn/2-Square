@@ -20,6 +20,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/VideoEdit.unity
     guid: 6a83edcd93f3ec6479c47eb2202f86c8
+  - enabled: 0
+    path: Assets/Scenes/DSH Map Floor 2.unity
+    guid: de3a1b1604dfaee4799cbe5ce06c13cd
+  - enabled: 1
+    path: Assets/Scenes/DSH Final Map.unity
+    guid: 7d041f0444e2519449f005e4e5529092
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: d713754bf3fb37144a7aa57ebd6deca3, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 099e6ba676ecf654395c524b1d5aeaf9, type: 2}

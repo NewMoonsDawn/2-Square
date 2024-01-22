@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\VideoSnap.cs" />
     <Compile Include="Assets\FreeView.cs" />
     <Compile Include="Assets\Coffee.cs" />
+    <Compile Include="Assets\GoBack.cs" />
     <Compile Include="Assets\EditTutorial.cs" />
     <Compile Include="Assets\Task.cs" />
     <Compile Include="Assets\ScreenshotCamera.cs" />

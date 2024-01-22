@@ -51,7 +51,6 @@ public class PlanTaskManager : MonoBehaviour
         {
             PlayerPrefs.SetFloat("score", PlayerPrefs.GetFloat("score") + 500f);
             gameObject.SetActive(false);
-
         }
     }
 }
