@@ -764,7 +764,6 @@ GameObject:
   - component: {fileID: 366461537}
   - component: {fileID: 366461536}
   - component: {fileID: 366461540}
-  - component: {fileID: 366461539}
   - component: {fileID: 366461541}
   m_Layer: 0
   m_Name: Pour
@@ -5575,26 +5574,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 366461535}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -5, y: 3, z: 0}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 1352876183}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!114 &366461539
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 366461535}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e62612d24181194f968f3b175b0e5f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &366461540
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6929,7 +6916,7 @@ GameObject:
   - component: {fileID: 1352876181}
   - component: {fileID: 1352876180}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: CoffeMachine_Placeholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7013,13 +7000,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1352876179}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -5, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_Children:
+  - {fileID: 366461538}
+  m_Father: {fileID: 2108839285}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1438565421
 GameObject:
@@ -12161,6 +12149,39 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!1 &2108839284
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2108839285}
+  m_Layer: 0
+  m_Name: CoffeeMinigame
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2108839285
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108839284}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4211533380940417366}
+  - {fileID: 1352876183}
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &316443377265245321
 Transform:
   m_ObjectHideFlags: 0
@@ -12170,7 +12191,7 @@ Transform:
   m_GameObject: {fileID: 7091589656047806125}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4211533380940417366}
@@ -12183,7 +12204,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7091589656047806125}
-  m_Mesh: {fileID: -4119317738140548247, guid: e85ecc53ff6578e47b06a36f5a18e31a, type: 3}
+  m_Mesh: {fileID: -4119317738140548247, guid: 321dfea3e9324d242bdef7137d57e4f8, type: 3}
 --- !u!23 &1682567372346732398
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12310,8 +12331,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4211533380940417366}
-  - component: {fileID: 4211533380940417367}
   - component: {fileID: 4211533380940417368}
+  - component: {fileID: 4211533380940417369}
   m_Layer: 0
   m_Name: Cup
   m_TagString: Untagged
@@ -12326,7 +12347,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3547024404906447852}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3, y: 0.326, z: -1.5}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
@@ -12334,25 +12355,9 @@ Transform:
   - {fileID: 316443377265245321}
   - {fileID: 1782008078288386304}
   - {fileID: 1599429854}
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_Father: {fileID: 2108839285}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4211533380940417367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3547024404906447852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aebfe735a279c445b6a4732ad71e113, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fill: 0
-  pour: {fileID: 1599429859}
-  fillTransform: {fileID: 1782008078288386304}
-  filled: 0
 --- !u!65 &4211533380940417368
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12374,6 +12379,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4211533380940417369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3547024404906447852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc0aa673cc49e8f4088db08e0bee7098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactable: 1
+  fill: 0
+  pour: {fileID: 1599429859}
+  fillTransform: {fileID: 1782008078288386304}
+  filled: 0
 --- !u!33 &5781909483402509546
 MeshFilter:
   m_ObjectHideFlags: 0

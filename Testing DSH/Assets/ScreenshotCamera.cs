@@ -7,9 +7,18 @@ using UnityEngine;
 
 public class ScreenshotCamera : MonoBehaviour
 {
+    public int screenshotsTaken;
+    public GameObject videoEditing;
+
+    public bool interactable;
+    public MeshRenderer tablet;
     public RenderTexture tabletRender;
+    public Material offMaterial;
+    public Material renderMaterial;
     public Transform raycastShootPoint;
+    public GameObject canvas;
     public LayerMask relevantMask;
+    public bool isOn;
 
     private Camera cam;
 
@@ -35,7 +44,13 @@ public class ScreenshotCamera : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T)) { StartCoroutine(TakeScreenshot()); }
+        if (!interactable) return;
+
+        // Call this function when the tablet enters the hands of the player and when it exits
+        if (Input.GetKeyDown(KeyCode.C)) TurnOn();
+
+        // Change input to VR input
+        if (isOn && Input.GetKeyDown(KeyCode.T)) { StartCoroutine(TakeScreenshot()); }
     }
 
     private IEnumerator TakeScreenshot()
@@ -62,9 +77,9 @@ public class ScreenshotCamera : MonoBehaviour
                 }
             }
 
-
             yield return new WaitForEndOfFrame();
 
+            screenshotsTaken++;
             RenderTexture rt = new RenderTexture(863, 444, 24);
             cam.targetTexture = rt;
             Texture2D screenShot = new Texture2D(863, 444, TextureFormat.RGB24, false);
@@ -78,6 +93,25 @@ public class ScreenshotCamera : MonoBehaviour
             string filename = Application.dataPath + "/Resources/CameraScreenshots/" + screenshotName;
             System.IO.File.WriteAllBytes(filename, bytes);
             Debug.Log(string.Format("Took screenshot to: {0}", filename));
+            if (screenshotsTaken >= 4) videoEditing.SetActive(true);
+        }
+    }
+
+    public void TurnOn()
+    {
+        isOn = !isOn;
+
+        if (isOn)
+        {
+            tablet.materials[0].mainTexture = tabletRender;
+            tablet.materials[0].color = Color.white;
+            canvas.gameObject.SetActive(true);
+        }
+        else
+        {
+            tablet.materials[0].mainTexture = null;
+            tablet.materials[0].color = Color.black;
+            canvas.gameObject.SetActive(false);
         }
     }
 }

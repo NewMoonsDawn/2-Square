@@ -13,7 +13,7 @@ public class Coffee : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<Cup>())
+        if (other.GetComponent<Cup>() && other.GetComponent<Cup>().interactable)
         {
             if (other.GetComponent<Cup>().fill < 100) pour.Play();
         }
@@ -22,7 +22,7 @@ public class Coffee : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.GetComponent<Cup>())
+        if (other.GetComponent<Cup>() && other.GetComponent<Cup>().interactable)
         {
             other.GetComponent<Cup>().Fill(1);
             if (other.GetComponent<Cup>().fill >= 100) pour.Stop();
