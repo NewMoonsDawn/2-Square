@@ -65,13 +65,16 @@
     <Compile Include="Assets\Scripts\VideoSnap.cs" />
     <Compile Include="Assets\FreeView.cs" />
     <Compile Include="Assets\Coffee.cs" />
+    <Compile Include="Assets\GoBack.cs" />
     <Compile Include="Assets\EditTutorial.cs" />
     <Compile Include="Assets\Task.cs" />
     <Compile Include="Assets\ScreenshotCamera.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\EditingBlock.cs" />
     <Compile Include="Assets\MeetingBehaviour.cs" />
+    <Compile Include="Assets\TestingScenePlatform.cs" />
     <Compile Include="Assets\Scripts\QuestionManager.cs" />
+    <Compile Include="Assets\PlanTaskManager.cs" />
     <Compile Include="Assets\XRButton.cs" />
     <Compile Include="Assets\TaskManager.cs" />
   </ItemGroup>
@@ -353,15 +356,6 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Android.Types">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.4f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Android.Gradle">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.4f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Gradle.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Android.GradleProject">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.4f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.GradleProject.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.4f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>
