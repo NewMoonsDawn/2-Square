@@ -554,7 +554,11 @@ Transform:
   m_Father: {fileID: 1516708440}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1 &185053482
+=======
+--- !u!1 &487354275
+>>>>>>> ba71e515125e3562db8a7893aab1d50130dd293e
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -562,20 +566,44 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD
   - component: {fileID: 185053483}
   m_Layer: 0
   m_Name: CoffeeMinigame
+=======
+  - component: {fileID: 487354277}
+  - component: {fileID: 487354276}
+  m_Layer: 0
+  m_Name: GoBack
+>>>>>>> ba71e515125e3562db8a7893aab1d50130dd293e
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
 --- !u!4 &185053483
+=======
+--- !u!114 &487354276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 487354275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87fcfe8fd9caeab4cb36c7a0e7734f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &487354277
+>>>>>>> ba71e515125e3562db8a7893aab1d50130dd293e
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 185053482}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.5, y: 0, z: 1.5000005}
@@ -1167,6 +1195,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 508329699}
   m_Mesh: {fileID: -4379204443698660266, guid: aa7bc338af8da544aad91cbddc330a1d, type: 3}
+=======
+  m_GameObject: {fileID: 487354275}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.7611582, y: 1.185995, z: 0.45511842}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>> ba71e515125e3562db8a7893aab1d50130dd293e
 --- !u!1 &529595464
 GameObject:
   m_ObjectHideFlags: 0
