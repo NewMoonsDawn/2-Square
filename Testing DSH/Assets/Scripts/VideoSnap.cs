@@ -28,16 +28,17 @@ public class VideoSnap : MonoBehaviour
 
     void FindScreenshotTextures()
     {
+        // Look through directory and add screenshots to an array of textures
         for (int i = 0; i < photosTaken.Length; i++)
-        {
             photosTaken[i] = Resources.Load<Texture2D>("CameraScreenshots/photo" + i);
-        }
     }
 
     public void CheckIfComplete()
     {
+        // Check if all XR Interactors have an object in them
         for (int i = 0; i < interactors.Length; i++)
         {
+            // If an interactor doesn't have an object - task isn't complete
             if (interactors[i].GetOldestInteractableSelected() == null)
             {
                 taskCompleted = false;
@@ -45,6 +46,7 @@ public class VideoSnap : MonoBehaviour
             }
         }
 
+        // Else task is completed
         print("Task completed");
         taskCompleted = true;
         EditTutorial.instance.NextPhrase();
@@ -57,14 +59,17 @@ public class VideoSnap : MonoBehaviour
         // Calculate Score
         for (int i = 0; i < interactors.Length; i++)
         {
+            // Check if indexes of building blocks match the index of the interactor - if they do increment the score
             if (interactors[i].GetComponent<EditingZone>().index == interactors[i].GetOldestInteractableSelected().transform.GetComponent<EditingBlock>().index)
             {
                 UpdateScore(100f);
             }
         }
 
+        // Disable tutorial
         EditTutorial.instance.gameObject.SetActive(false);
 
+        // Start rendering the video
         StartCoroutine(RenderVideo());
     }
 
@@ -76,13 +81,16 @@ public class VideoSnap : MonoBehaviour
 
         YieldInstruction waitForFixedUpdate = new WaitForFixedUpdate();
 
+        // Setup progress slider and text
         float progress = 0;
         progressSlider.gameObject.SetActive(true);
         scoreText.gameObject.SetActive(true);
 
+        // Disable interactors so no more interaction can be done
         for (int i = 0; i < interactors.Length; i++)
             interactors[i].socketActive = false;
 
+        // Fill up render progress slider over time
         while (progress < 1)
         {
             progress += .2f * Time.fixedDeltaTime;
@@ -92,7 +100,7 @@ public class VideoSnap : MonoBehaviour
 
         string keyword = "";
 
-        // Calculate score
+        // Calculate score and give a keyword based on how good the player edited the video
         switch (GameManager.instance.score)
         {
             case 0: keyword = "Poor..."; scorePoints = 200f; break;

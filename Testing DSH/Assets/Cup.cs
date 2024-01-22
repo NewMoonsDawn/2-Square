@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Cup : MonoBehaviour
 {
+    public bool interactable;
     public float fill;
     public ParticleSystem pour;
     public Transform fillTransform;
@@ -11,6 +12,8 @@ public class Cup : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!interactable) return;
+
         fillTransform.localPosition = Vector3.up * ((fill + .1f) / 100) * 2;
 
         if (fill <= 0) return;
