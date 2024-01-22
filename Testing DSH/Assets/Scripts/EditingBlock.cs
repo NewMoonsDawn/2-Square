@@ -8,6 +8,7 @@ public class EditingBlock : MonoBehaviour
 
     public void SetMaterial()
     {
+        // Get the material of the screen and set the texture to a screenshot depending on the index
         GetComponentInChildren<MeshRenderer>().materials[1].SetTexture("_MainTex", FindObjectOfType<VideoSnap>().photosTaken[index]);
     }
 
