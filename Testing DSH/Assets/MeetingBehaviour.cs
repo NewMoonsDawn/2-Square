@@ -14,9 +14,9 @@ public class MeetingBehaviour : MonoBehaviour
     public Transform currentLocation;
 
     [SerializeField]
-    public float spawntime = 10f;
+    public float spawntime = 80f;
     [SerializeField]
-    public float actiontime = 10f;
+    public float actiontime = 80f;
 
     public bool action = false;
 

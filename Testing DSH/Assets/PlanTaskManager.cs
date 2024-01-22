@@ -7,15 +7,15 @@ public class PlanTaskManager : MonoBehaviour
 
     private List<Transform> locations;
     private List<Transform> selectedLocations;
-    public int expectedLocations = 3;
+    public int expectedLocations = 2;
     public GameObject player;
 
     // Start is called before the first frame update
-    private void OnEnable()
+    private void Start()
     {
         for (int i = 0; i < transform.childCount; i++)
         {
-            locations[i] = transform.GetChild(i).transform;
+            locations.Add(transform.GetChild(i).transform);
             locations[i].gameObject.AddComponent<MeshCollider>().enabled = false;
             locations[i].gameObject.SetActive(false);
         }
@@ -23,7 +23,7 @@ public class PlanTaskManager : MonoBehaviour
         for (int i = 0; i < expectedLocations; i++)
         {
             int random = Random.Range(0, locations.Count);
-            selectedLocations[i] = locations[random];
+            selectedLocations.Add(locations[random]);
             locations.RemoveAt(random);
             Color temp = selectedLocations[i].GetComponent<Renderer>().material.color;
             temp.a = 0.6f;
@@ -37,7 +37,7 @@ public class PlanTaskManager : MonoBehaviour
     {
         for (int i = 0; i < selectedLocations.Count; i++)
         {
-            if (Vector3.Distance(player.transform.position, selectedLocations[i].position) < 1f && Input.GetButtonDown("XRI_Left_SecondaryButton"))
+            /*if (Vector3.Distance(player.transform.position, selectedLocations[i].position) < 1f && Input.GetButtonDown("XRI_Left_SecondaryButton"))
             {
                 Color temp = selectedLocations[i].GetComponent<Renderer>().material.color;
                 temp.a = 1f;
@@ -45,7 +45,7 @@ public class PlanTaskManager : MonoBehaviour
                 selectedLocations[i].GetComponent<MeshCollider>().enabled = true;
                 PlayerPrefs.SetFloat("score", PlayerPrefs.GetFloat("score") + 100f);
                 selectedLocations.RemoveAt(i);
-            }
+            }*/
         }
         if (selectedLocations.Count == 0)
         {
