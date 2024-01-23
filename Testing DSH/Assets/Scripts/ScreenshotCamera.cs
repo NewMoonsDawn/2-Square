@@ -8,7 +8,6 @@ using UnityEngine;
 public class ScreenshotCamera : MonoBehaviour
 {
     public int screenshotsTaken;
-    public GameObject videoEditing;
 
     public bool interactable;
     public MeshRenderer tablet;
@@ -19,6 +18,7 @@ public class ScreenshotCamera : MonoBehaviour
     public GameObject canvas;
     public LayerMask relevantMask;
     public bool isOn;
+    public AudioSource playerSource;
 
     private Camera cam;
 
@@ -46,11 +46,8 @@ public class ScreenshotCamera : MonoBehaviour
     {
         if (!interactable) return;
 
-        // Call this function when the tablet enters the hands of the player and when it exits
-        if (Input.GetKeyDown(KeyCode.C)) TurnOn();
-
         // Change input to VR input
-        if (isOn && Input.GetKeyDown(KeyCode.T)) { StartCoroutine(TakeScreenshot()); }
+        if (isOn && Input.GetButtonDown("XRI_Left_SecondaryButton")) { StartCoroutine(TakeScreenshot()); }
     }
 
     private IEnumerator TakeScreenshot()
@@ -79,6 +76,7 @@ public class ScreenshotCamera : MonoBehaviour
 
             yield return new WaitForEndOfFrame();
 
+            playerSource.Play();
             screenshotsTaken++;
             RenderTexture rt = new RenderTexture(863, 444, 24);
             cam.targetTexture = rt;
@@ -93,7 +91,6 @@ public class ScreenshotCamera : MonoBehaviour
             string filename = Application.dataPath + "/Resources/CameraScreenshots/" + screenshotName;
             System.IO.File.WriteAllBytes(filename, bytes);
             Debug.Log(string.Format("Took screenshot to: {0}", filename));
-            if (screenshotsTaken >= 4) videoEditing.SetActive(true);
         }
     }
 

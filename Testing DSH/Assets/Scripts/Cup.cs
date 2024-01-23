@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Cup : MonoBehaviour
 {
+    public Transform headTransform;
     public bool interactable;
     public float fill;
     public ParticleSystem pour;
@@ -15,18 +16,6 @@ public class Cup : MonoBehaviour
         if (!interactable) return;
 
         fillTransform.localPosition = Vector3.up * ((fill + .1f) / 100) * 2;
-
-        if (fill <= 0) return;
-
-         if (transform.eulerAngles.z > 225 && transform.eulerAngles.z < 315)
-        {
-            Fill(-1);
-            pour.Play();
-        }
-         else
-        {
-            pour.Stop();
-        }
     }
 
     public void Fill(float amount)
