@@ -49,7 +49,7 @@ public class VideoSnap : MonoBehaviour
         // Else task is completed
         print("Task completed");
         taskCompleted = true;
-        EditTutorial.instance.NextPhrase();
+        StartCoroutine(RenderVideo());
     }
 
     public void CalculateScore()
@@ -75,6 +75,8 @@ public class VideoSnap : MonoBehaviour
 
     public IEnumerator RenderVideo()
     {
+        yield return new WaitForSeconds(1);
+
         if (rendered) yield break;
 
         rendered = true;

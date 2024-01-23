@@ -25,35 +25,29 @@ public class XRButton : MonoBehaviour
 
     public void Follow(BaseInteractionEventArgs hover)
     {
-        if (hover.interactorObject is XRPokeInteractor) // Works only with fingers
-        {
-            XRPokeInteractor interactor = (XRPokeInteractor)hover.interactorObject;
+        var interactor = hover.interactorObject;
            
-            pokeAttachTransform = interactor.transform;
-            offset = visualTarget.position - pokeAttachTransform.position;
+        pokeAttachTransform = interactor.transform;
+        offset = visualTarget.position - pokeAttachTransform.position;
 
-            float pokeAngle = Vector3.Angle(offset, visualTarget.TransformDirection(localAxis));
+        float pokeAngle = Vector3.Angle(offset, visualTarget.TransformDirection(localAxis));
 
-            if (pokeAngle < followTreshold)
-            {
-                freeze = false;
-                following = true;
-            }
+        if (pokeAngle < followTreshold)
+        {
+            freeze = false;
+            following = true;
         }
     }
 
     public void ResetVisual(BaseInteractionEventArgs hover)
     {
-        if (hover.interactorObject is XRPokeInteractor)
-        {
-            following = false;
-            freeze = false;
-        }
+        following = false;
+        freeze = false;
     }
 
     public void Freeze(BaseInteractionEventArgs hover)
     {
-        if (hover.interactorObject is XRPokeInteractor) freeze = true;
+        freeze = true;
     }
 
     void Update()

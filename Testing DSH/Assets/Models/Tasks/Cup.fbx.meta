@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Testing DSH/Assets/Models/Bike.fbx.meta
 guid: 321dfea3e9324d242bdef7137d57e4f8
-========
-guid: e85ecc53ff6578e47b06a36f5a18e31a
->>>>>>>> Andrey:Testing DSH/Assets/Models/Tasks/Cup.fbx.meta
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -71,7 +67,7 @@ ModelImporter:
     secondaryUVMinLightmapResolution: 40
     secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
-    useFileScale: 1
+    useFileScale: 0
     strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60

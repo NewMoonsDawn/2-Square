@@ -17,7 +17,6 @@ public class Coffee : MonoBehaviour
         {
             if (other.GetComponent<Cup>().fill < 100) pour.Play();
         }
-
     }
 
     private void OnTriggerStay(Collider other)
