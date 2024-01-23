@@ -64,7 +64,7 @@ public class MeetingBehaviour : MonoBehaviour
         {
             actiontimer -= Time.deltaTime;
             actionUI.text = meetingQuestMessage + string.Format(" {0}:{1}", Mathf.FloorToInt(actiontimer / 60).ToString(), Mathf.FloorToInt(actiontimer % 60).ToString());
-            if(Vector3.Distance(player.transform.position,currentLocation.position)<1f)
+            if(Vector3.Distance(player.transform.position,currentLocation.position)<2f)
             {
                 actiontimer = 0f;
                 PlayerPrefs.SetFloat("score", PlayerPrefs.GetFloat("score") + 200f);

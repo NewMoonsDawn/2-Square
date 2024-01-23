@@ -26,6 +26,7 @@ public class TaskManager : MonoBehaviour
     public PlanTaskManager plantTaskScript;
     public GameObject videoEditting;
 
+    public TMP_Text debug;
 
 
 
@@ -39,7 +40,7 @@ public class TaskManager : MonoBehaviour
     private Task task;
     void Start()
     {
-
+        PlayerPrefs.SetFloat("score", 0f);
         Debug.Log(PlayerPrefs.GetString("name"));
         taskTexts = new string[expectedTasks];
         for(int i =0;i<expectedTasks;i++)
@@ -63,12 +64,12 @@ public class TaskManager : MonoBehaviour
 
         scoreText.text = "Score: " + PlayerPrefs.GetFloat("score").ToString();
         currentTasks = tasks.Count;
-      // if(tasksList.Count<expectedTasks-1)
-       // {
-         //   expectedTasks = tasksList.Count;
-       //}    
+        // if(tasksList.Count<expectedTasks-1)
+        // {
+        //   expectedTasks = tasksList.Count;
+        //}    
 
-        
+        tasks.Add(tasksList[1]);
        if(currentTasks < expectedTasks && tasksList.Count !=0)
         {
             int random = UnityEngine.Random.Range(0,tasksList.Count);
@@ -148,6 +149,8 @@ public class TaskManager : MonoBehaviour
         {
             if (tasks[i].getName() == taskName)
             {
+                debug.text = "task complete" + taskName;
+                tasks.RemoveAt(i);
                 PlayerPrefs.SetFloat("score", PlayerPrefs.GetFloat("score") + 100f);
             }
         }
