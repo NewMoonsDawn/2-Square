@@ -5,19 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main Menu.unity
     guid: e3471046f3303c048b6b47ca4733fe71
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Coffee.unity
     guid: cb83c711544a3544d996f1dc7dcc4ef1
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TakePhoto.unity
     guid: 65b5733aa5656914bb0f8a7371e8e161
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/VideoEdit.unity
     guid: 6a83edcd93f3ec6479c47eb2202f86c8
   - enabled: 0
