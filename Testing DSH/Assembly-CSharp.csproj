@@ -53,33 +53,32 @@
     <UnityVersion>2022.3.4f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.4f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.4f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Coffee.cs" />
     <Compile Include="Assets\Scripts\EditingZone.cs" />
     <Compile Include="Assets\Hands\XRPlatformControllerSetup.cs" />
-    <Compile Include="Assets\Scripts\MainMenuButtons.cs" />
+    <Compile Include="Assets\Player.cs" />
+    <Compile Include="Assets\MainMenuButtons.cs" />
+    <Compile Include="Assets\Cup.cs" />
     <Compile Include="Assets\Scripts\VideoSnap.cs" />
-    <Compile Include="Assets\Scripts\PlanTaskManager.cs" />
-    <Compile Include="Assets\Scripts\FreeView.cs" />
+    <Compile Include="Assets\FreeView.cs" />
+    <Compile Include="Assets\Coffee.cs" />
+    <Compile Include="Assets\GoBack.cs" />
+    <Compile Include="Assets\EditTutorial.cs" />
+    <Compile Include="Assets\Task.cs" />
     <Compile Include="Assets\Hands\HandController.cs" />
-    <Compile Include="Assets\Scripts\Consumer.cs" />
-    <Compile Include="Assets\Scripts\Cup.cs" />
-    <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\ScreenshotCamera.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\EditingBlock.cs" />
-    <Compile Include="Assets\Scripts\XRButton.cs" />
+    <Compile Include="Assets\MeetingBehaviour.cs" />
+    <Compile Include="Assets\TestingScenePlatform.cs" />
     <Compile Include="Assets\Scripts\QuestionManager.cs" />
-    <Compile Include="Assets\Scripts\ScreenshotCamera.cs" />
-    <Compile Include="Assets\Scripts\EditTutorial.cs" />
-    <Compile Include="Assets\Scripts\TestingScenePlatform.cs" />
-    <Compile Include="Assets\Scripts\TaskManager.cs" />
-    <Compile Include="Assets\Scripts\Task.cs" />
-    <Compile Include="Assets\Scripts\MeetingBehaviour.cs" />
-    <Compile Include="Assets\Scripts\GoBack.cs" />
+    <Compile Include="Assets\PlanTaskManager.cs" />
+    <Compile Include="Assets\XRButton.cs" />
+    <Compile Include="Assets\TaskManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
