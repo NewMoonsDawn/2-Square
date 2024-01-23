@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 315b30d4b5b781d4fa7a8f1c3454269a
+guid: 32d7dc8a95f963c4eafcd474ffe88a27
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: default
-    second: {fileID: 2100000, guid: 8df512fcdb6b64e48b1031d1f95a8673, type: 2}
+      name: abciuppa_m_node
+    second: {fileID: 2100000, guid: 3e774abb557a88a42a0acfd4b598293f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: abciuppa_w_node
+    second: {fileID: 2100000, guid: 3e774abb557a88a42a0acfd4b598293f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
