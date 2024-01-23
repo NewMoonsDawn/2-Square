@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Consumer : MonoBehaviour
 {
+    public TaskManager taskManager;
     private void OnTriggerStay(Collider other)
     {
         if (other.TryGetComponent(out Cup cup))
@@ -13,7 +14,8 @@ public class Consumer : MonoBehaviour
             cup.interactable = false;
             cup.fillTransform.localPosition = Vector3.zero;
             print("Here");
-            // Add Score
+            PlayerPrefs.SetFloat("score", PlayerPrefs.GetFloat("score") + 250f);
+            taskManager.taskEnd("Get a coffee");
         }
     }
 }

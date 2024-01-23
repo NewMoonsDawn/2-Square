@@ -12,7 +12,7 @@ public class TaskManager : MonoBehaviour
 
     private int currentTasks = 0;
     [SerializeField]
-    private int expectedTasks = 3;
+    private int expectedTasks = 2;
 
     private List<Task> tasksList = new List<Task>();
     private List<Task> tasks = new List<Task>();
@@ -20,6 +20,15 @@ public class TaskManager : MonoBehaviour
     public TMP_Text taskText;
 
     public TMP_Text scoreText;
+
+    public Cup coffeeScript;
+    public ScreenshotCamera screenshotCameraScript;
+    public PlanTaskManager plantTaskScript;
+    public GameObject videoEditting;
+
+
+
+
    /* private string task1;
     private string task2;
     private string task3;
@@ -38,14 +47,14 @@ public class TaskManager : MonoBehaviour
             taskTexts[i] = "";
         }
 
-        tasksList.Add(new Task(15f, "Example1", "Desc1", 100f));
-        tasksList.Add(new Task(12f, "Example2", "Desc2", 100f));
-        tasksList.Add(new Task(11f, "Example3", "Desc3", 100f));
-        tasksList.Add(new Task(14f, "Example4", "Desc4", 100f));
-        tasksList.Add(new Task(16f, "Example5", "Desc5", 100f));
-        tasksList.Add(new Task(9f, "Example6", "Desc6", 100f));
+        tasksList.Add(new Task(120f, "Interview Corrian", "Desc1", 100f));
+        tasksList.Add(new Task(110f, "Plant Plants", "Desc2", 100f));
+        tasksList.Add(new Task(130f, "Get a coffee", "Desc3", 100f));
+        tasksList.Add(new Task(115f, "Take pictures", "Desc4", 100f));
+        tasksList.Add(new Task(105f, "Video Editting", "Desc5", 100f));
 
         taskText.text = "";
+        videoEditting.SetActive(false);
     }
 
     // Update is called once per frame
@@ -67,29 +76,30 @@ public class TaskManager : MonoBehaviour
             tasks.Add(task);
             tasksList.RemoveAt(random);
                 
-            /*switch (currentTasks+1)
+            switch (task.getName())
             {
-                case 1:
+                case "Plant Plants":
                     {
-                        taskTexts[0] = task.getName() + ": " + task.getDescription();
+                        plantTaskScript.enabled = true;
                         break;
                     }
-                case 2:
+               case "Get a coffee":
                     {
-                        taskTexts[1]= task.getName() + ": " + task.getDescription();
+                        coffeeScript.interactable = true;
                         break;
                     }
-                    case 3:
+               case "Take pictures":
                     {
-                        taskTexts[2] = task.getName() + ": " + task.getDescription();
+                        screenshotCameraScript.interactable = true;
                         break;
                     }
-                    case 4:
+               case "Video Editting":
                     {
-                        taskTexts[3] = task.getName() + ": " + task.getDescription();
+                        videoEditting.SetActive(true);
                         break;
                     }
-            }*/
+
+            }
             currentTasks++;
         }
 
@@ -122,15 +132,25 @@ public class TaskManager : MonoBehaviour
             + System.Environment.NewLine + tasks[1].getName() + " : " + tasks[1].getDescription() + string.Format(" {0}:{1}", Mathf.FloorToInt(tasks[1].getTime() / 60).ToString(), Mathf.FloorToInt(tasks[1].getTime() % 60).ToString());
                     break;
                 }
-            case 3:
+            /*case 3:
                 {
                     taskText.text = tasks[0].getName() + " : " + tasks[0].getDescription() + string.Format(" {0}:{1}", Mathf.FloorToInt(tasks[0].getTime() / 60).ToString(), Mathf.FloorToInt(tasks[0].getTime() % 60).ToString())
             + System.Environment.NewLine + tasks[1].getName() + " : " + tasks[1].getDescription() + string.Format(" {0}:{1}", Mathf.FloorToInt(tasks[1].getTime() / 60).ToString(), Mathf.FloorToInt(tasks[1].getTime() % 60).ToString())
             + System.Environment.NewLine + tasks[2].getName() + " : " + tasks[2].getDescription() + string.Format(" {0}:{1}", Mathf.FloorToInt(tasks[2].getTime() / 60).ToString(), Mathf.FloorToInt(tasks[2].getTime() % 60).ToString());
                     break;
-                }
+                */}
         
         }
+
+    public void taskEnd(string taskName)
+    {
+        for (int i = 0;i<tasks.Count;i++)
+        {
+            if (tasks[i].getName() == taskName)
+            {
+                PlayerPrefs.SetFloat("score", PlayerPrefs.GetFloat("score") + 100f);
+            }
+        }
+    }
         
     }
-}

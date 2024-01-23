@@ -9,9 +9,10 @@ public class PlanTaskManager : MonoBehaviour
     private List<Transform> selectedLocations = new List<Transform>();
     public int expectedLocations = 3;
     public GameObject player;
+    public TaskManager taskManager;
 
     // Start is called before the first frame update
-    private void Start()
+    private void OnEnable()
     {
         for (int i = 0; i < transform.childCount; i++)
         {
@@ -52,6 +53,7 @@ public class PlanTaskManager : MonoBehaviour
         if (selectedLocations.Count == 0)
         {
             PlayerPrefs.SetFloat("score", PlayerPrefs.GetFloat("score") + 500f);
+            taskManager.taskEnd("Plant Plants");
             gameObject.SetActive(false);
         }
     }
