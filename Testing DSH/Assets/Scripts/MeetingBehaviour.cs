@@ -7,6 +7,9 @@ using UnityEngine;
 
 public class MeetingBehaviour : MonoBehaviour
 {
+    public GameObject player;
+
+
     public float spawntimer;
     public int children;
     public Transform[] spawnLocations;
@@ -61,6 +64,11 @@ public class MeetingBehaviour : MonoBehaviour
         {
             actiontimer -= Time.deltaTime;
             actionUI.text = meetingQuestMessage + string.Format(" {0}:{1}", Mathf.FloorToInt(actiontimer / 60).ToString(), Mathf.FloorToInt(actiontimer % 60).ToString());
+            if(Vector3.Distance(player.transform.position,currentLocation.position)<1f)
+            {
+                actiontimer = 0f;
+                PlayerPrefs.SetFloat("score", PlayerPrefs.GetFloat("score") + 200f);
+            }
         }
         else if (action)
         {
