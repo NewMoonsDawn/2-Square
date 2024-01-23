@@ -35,7 +35,7 @@ public class MeetingBehaviour : MonoBehaviour
         for (int i = 0; i<children; i++)
         {
             spawnLocations[i] = transform.GetChild(i);
-            Debug.Log(spawnLocations[i]);
+            Debug.Log(spawnLocations[i].name);
         }
 
 
@@ -52,7 +52,7 @@ public class MeetingBehaviour : MonoBehaviour
         {
             action = true;
             currentLocation = spawnLocations[UnityEngine.Random.Range(0, children)];
-            currentLocation.GetChild(0).GetComponent<Renderer>().material.color = Color.green;
+            currentLocation.GetComponent<Renderer>().material.color = Color.green;
             actionUI.transform.parent.gameObject.SetActive(true);
             actiontimer = actiontime;
         }
@@ -65,7 +65,7 @@ public class MeetingBehaviour : MonoBehaviour
         else if (action)
         {
             spawntimer = spawntime;
-            currentLocation.GetChild(0).GetComponent<Renderer>().material.color = Color.white;
+            currentLocation.GetComponent<Renderer>().material.color = Color.white;
             actionUI.transform.parent.gameObject.SetActive(false);
             action = false;
         }
