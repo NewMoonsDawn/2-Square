@@ -8,7 +8,7 @@ using UnityEngine;
 public class ScreenshotCamera : MonoBehaviour
 {
     public TaskManager taskManager;
-
+    public Area area;
 
     public int screenshotsTaken;
 
@@ -52,7 +52,6 @@ public class ScreenshotCamera : MonoBehaviour
 
         // Change input to VR input
         if (Input.GetButtonDown("VR")) { StartCoroutine(TakeScreenshot()); }
-        if (Input.GetKeyDown(KeyCode.T)) { StartCoroutine(TakeScreenshot()); }
     }
 
     private IEnumerator TakeScreenshot()
@@ -60,9 +59,9 @@ public class ScreenshotCamera : MonoBehaviour
         // Raycast
         RaycastHit hit;
         // Does the ray intersect any objects excluding the player layer
-        if (Physics.Raycast(raycastShootPoint.position, raycastShootPoint.TransformDirection(Vector3.forward), out hit, Mathf.Infinity)) //, relevantMask
+        if (area)
         {
-            string screenshotName = "photo" + hit.transform.name + ".png";
+            string screenshotName = "photo" + screenshotsTaken + ".png";
 
             // If folder contains a screenshot with this name - screenshot is already taken
             string[] files = System.IO.Directory.GetFiles(Application.dataPath + "/Resources/CameraScreenshots/");
@@ -101,6 +100,8 @@ public class ScreenshotCamera : MonoBehaviour
             {
                 taskManager.taskEnd("Take pictures");
             }
+            Destroy(area.gameObject);
+            area = null;
         }
     }
 

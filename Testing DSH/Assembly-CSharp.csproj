@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\PlanTaskManager.cs" />
     <Compile Include="Assets\Scripts\FreeView.cs" />
     <Compile Include="Assets\Hands\HandController.cs" />
+    <Compile Include="Assets\Area.cs" />
     <Compile Include="Assets\Scripts\Consumer.cs" />
     <Compile Include="Assets\Scripts\Cup.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
