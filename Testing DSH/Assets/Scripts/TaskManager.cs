@@ -48,7 +48,7 @@ public class TaskManager : MonoBehaviour
             taskTexts[i] = "";
         }
 
-        tasksList.Add(new Task(120f, "Interview Corrian", "Desc1", 100f));
+        //tasksList.Add(new Task(120f, "Interview Corrian", "Desc1", 100f));
         tasksList.Add(new Task(110f, "Plant Plants", "Desc2", 100f));
         tasksList.Add(new Task(130f, "Get a coffee", "Desc3", 100f));
         tasksList.Add(new Task(115f, "Take pictures", "Desc4", 100f));
@@ -69,7 +69,6 @@ public class TaskManager : MonoBehaviour
         //   expectedTasks = tasksList.Count;
         //}    
 
-        tasks.Add(tasksList[1]);
        if(currentTasks < expectedTasks && tasksList.Count !=0)
         {
             int random = UnityEngine.Random.Range(0,tasksList.Count);
