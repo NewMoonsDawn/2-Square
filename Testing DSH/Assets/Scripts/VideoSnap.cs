@@ -10,6 +10,7 @@ public class VideoSnap : MonoBehaviour
 {
     public Texture2D[] photosTaken = new Texture2D[4];
     public XRSocketInteractor[] interactors;
+    public TaskManager taskManager;
 
     [Header("Rendering")]
     public Slider progressSlider;
@@ -114,6 +115,7 @@ public class VideoSnap : MonoBehaviour
         processingText.text = "Done!";
         scoreText.text = "Video Quality is " + keyword;
         UpdateScore(scorePoints);
+        taskManager.taskEnd("Video Editting");
     }
 
     public void UpdateScore(float score)

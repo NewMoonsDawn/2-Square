@@ -9,15 +9,17 @@ public class PlanTaskManager : MonoBehaviour
     private List<Transform> selectedLocations = new List<Transform>();
     public int expectedLocations = 3;
     public GameObject player;
+    public TaskManager taskManager;
 
     // Start is called before the first frame update
-    private void Start()
+    private void OnEnable()
     {
         for (int i = 0; i < transform.childCount; i++)
         {
             locations.Add(transform.GetChild(i).transform);
             locations[i].gameObject.AddComponent<MeshCollider>().enabled = false;
             locations[i].gameObject.SetActive(false);
+            locations[i].transform.GetChild(0).gameObject.SetActive(false);
         }
 
         for (int i = 0; i < expectedLocations; i++)
@@ -26,10 +28,12 @@ public class PlanTaskManager : MonoBehaviour
             int random = Random.Range(0, locations.Count);
             selectedLocations.Add(locations[random]);
             locations.RemoveAt(random);
-            Color temp = selectedLocations[i].GetComponent<Renderer>().material.color;
+            
+           /* Color temp = selectedLocations[i].GetComponent<Renderer>().materials[2];
             temp.a = 0.6f;
-            selectedLocations[i].GetComponent<Renderer>().material.color = temp;
+            selectedLocations[i].GetComponent<Renderer>().material.color = temp;*/
             selectedLocations[i].gameObject.SetActive(true);
+
             Debug.Log(selectedLocations[i].name);
         }
     }
@@ -39,20 +43,21 @@ public class PlanTaskManager : MonoBehaviour
     {
         for (int i = 0; i < selectedLocations.Count; i++)
         {
-            if (Vector3.Distance(player.transform.position, selectedLocations[i].position) < 1f && Input.GetButtonDown("XRI_Left_SecondaryButton"))
+            if (Vector3.Distance(player.transform.position, selectedLocations[i].position) < 1.5f) //&& Input.GetButtonDown("XRI_Left_SecondaryButton"))
             {
-                Color temp = selectedLocations[i].GetComponent<Renderer>().material.color;
+                /*Color temp = selectedLocations[i].GetComponent<Renderer>().material.color;
                 temp.a = 1f;
-                selectedLocations[i].GetComponent<Renderer>().material.color = temp;
+                selectedLocations[i].GetComponent<Renderer>().material.color = temp;*/
                 selectedLocations[i].GetComponent<MeshCollider>().enabled = true;
                 PlayerPrefs.SetFloat("score", PlayerPrefs.GetFloat("score") + 100f);
+                selectedLocations[i].GetChild(0).gameObject.SetActive(true);
                 selectedLocations.RemoveAt(i);
             }
         }
         if (selectedLocations.Count == 0)
         {
             PlayerPrefs.SetFloat("score", PlayerPrefs.GetFloat("score") + 500f);
-            gameObject.SetActive(false);
+            taskManager.taskEnd("Plant Plants");
         }
     }
 }

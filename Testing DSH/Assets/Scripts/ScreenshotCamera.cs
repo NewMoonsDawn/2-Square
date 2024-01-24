@@ -7,6 +7,9 @@ using UnityEngine;
 
 public class ScreenshotCamera : MonoBehaviour
 {
+    public TaskManager taskManager;
+
+
     public int screenshotsTaken;
 
     public bool interactable;
@@ -44,7 +47,7 @@ public class ScreenshotCamera : MonoBehaviour
 
     void Update()
     {
-        //if (!interactable) return;
+        if (!interactable) return;
         //if (isOn && Input.GetButtonDown("XRI_Left_SecondaryButton")) { StartCoroutine(TakeScreenshot()); }
 
         // Change input to VR input
@@ -93,6 +96,11 @@ public class ScreenshotCamera : MonoBehaviour
             string filename = Application.dataPath + "/Resources/CameraScreenshots/" + screenshotName;
             System.IO.File.WriteAllBytes(filename, bytes);
             Debug.Log(string.Format("Took screenshot to: {0}", filename));
+
+            if (screenshotsTaken >= 4)
+            {
+                taskManager.taskEnd("Take pictures");
+            }
         }
     }
 
