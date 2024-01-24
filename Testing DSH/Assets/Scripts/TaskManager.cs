@@ -26,7 +26,7 @@ public class TaskManager : MonoBehaviour
     public PlanTaskManager plantTaskScript;
     public GameObject videoEditting;
 
-    public TMP_Text debug;
+   // public TMP_Text debug;
 
 
 
@@ -48,11 +48,11 @@ public class TaskManager : MonoBehaviour
             taskTexts[i] = "";
         }
 
-        tasksList.Add(new Task(120f, "Interview Corrian", "Desc1", 100f));
-        tasksList.Add(new Task(110f, "Plant Plants", "Desc2", 100f));
-        tasksList.Add(new Task(130f, "Get a coffee", "Desc3", 100f));
-        tasksList.Add(new Task(115f, "Take pictures", "Desc4", 100f));
-        tasksList.Add(new Task(105f, "Video Editting", "Desc5", 100f));
+        tasksList.Add(new Task(120f, "Question Picker", "Choose 5 of 10 questions to conduct an interview with!", 150f));
+        tasksList.Add(new Task(110f, "Plant Plants", "Find places around the buildings to place down plants!", 120f));
+        tasksList.Add(new Task(130f, "Get a coffee", "Time for a break, go get some coffee!", 80f));
+        tasksList.Add(new Task(115f, "Take pictures", "Take 4 pictures of the main areas", 200f));
+        tasksList.Add(new Task(105f, "Video Editting", "", 180f));
 
         taskText.text = "";
         videoEditting.SetActive(false);
@@ -69,7 +69,7 @@ public class TaskManager : MonoBehaviour
         //   expectedTasks = tasksList.Count;
         //}    
 
-        tasks.Add(tasksList[1]);
+       
        if(currentTasks < expectedTasks && tasksList.Count !=0)
         {
             int random = UnityEngine.Random.Range(0,tasksList.Count);
@@ -149,9 +149,10 @@ public class TaskManager : MonoBehaviour
         {
             if (tasks[i].getName() == taskName)
             {
-                debug.text = "task complete" + taskName;
+                //debug.text = "task complete" + taskName;
+                
+                PlayerPrefs.SetFloat("score", PlayerPrefs.GetFloat("score") + tasks[i].getPoints());
                 tasks.RemoveAt(i);
-                PlayerPrefs.SetFloat("score", PlayerPrefs.GetFloat("score") + 100f);
             }
         }
     }

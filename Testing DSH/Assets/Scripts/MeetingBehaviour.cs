@@ -25,6 +25,8 @@ public class MeetingBehaviour : MonoBehaviour
 
     public TMP_Text actionUI;
 
+    private Color transparent = new Color(255,255,255,0f);
+
     //TODO FINAL MESSAGE
     public string meetingQuestMessage = "There is an important meeting going on! Find and attend it, quick!";
 
@@ -38,6 +40,7 @@ public class MeetingBehaviour : MonoBehaviour
         for (int i = 0; i<children; i++)
         {
             spawnLocations[i] = transform.GetChild(i);
+            spawnLocations[i].GetComponent<Renderer>().enabled = false;
             Debug.Log(spawnLocations[i].name);
         }
 
@@ -55,6 +58,7 @@ public class MeetingBehaviour : MonoBehaviour
         {
             action = true;
             currentLocation = spawnLocations[UnityEngine.Random.Range(0, children)];
+            currentLocation.GetComponent<Renderer>().enabled = true;
             currentLocation.GetComponent<Renderer>().material.color = Color.green;
             actionUI.transform.parent.gameObject.SetActive(true);
             actiontimer = actiontime;
@@ -64,7 +68,7 @@ public class MeetingBehaviour : MonoBehaviour
         {
             actiontimer -= Time.deltaTime;
             actionUI.text = meetingQuestMessage + string.Format(" {0}:{1}", Mathf.FloorToInt(actiontimer / 60).ToString(), Mathf.FloorToInt(actiontimer % 60).ToString());
-            if(Vector3.Distance(player.transform.position,currentLocation.position)<2f)
+            if(Vector3.Distance(player.transform.position,currentLocation.position)<2.5f)
             {
                 actiontimer = 0f;
                 PlayerPrefs.SetFloat("score", PlayerPrefs.GetFloat("score") + 200f);
@@ -73,7 +77,8 @@ public class MeetingBehaviour : MonoBehaviour
         else if (action)
         {
             spawntimer = spawntime;
-            currentLocation.GetComponent<Renderer>().material.color = Color.white;
+            //currentLocation.GetComponent<Renderer>().material.color = transparent;
+            currentLocation.GetComponent<Renderer>().enabled = false;
             actionUI.transform.parent.gameObject.SetActive(false);
             action = false;
         }
