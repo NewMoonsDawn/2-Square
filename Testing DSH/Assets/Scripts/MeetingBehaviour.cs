@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MeetingBehaviour : MonoBehaviour
@@ -40,6 +41,7 @@ public class MeetingBehaviour : MonoBehaviour
         for (int i = 0; i<children; i++)
         {
             spawnLocations[i] = transform.GetChild(i);
+            spawnLocations[i].AddComponent<MeetingBlock>();
             spawnLocations[i].GetComponent<Renderer>().enabled = false;
             Debug.Log(spawnLocations[i].name);
         }
@@ -68,11 +70,11 @@ public class MeetingBehaviour : MonoBehaviour
         {
             actiontimer -= Time.deltaTime;
             actionUI.text = meetingQuestMessage + string.Format(" {0}:{1}", Mathf.FloorToInt(actiontimer / 60).ToString(), Mathf.FloorToInt(actiontimer % 60).ToString());
-            if(Vector3.Distance(player.transform.position,currentLocation.position)<2.5f)
+          /*  if(Vector3.Distance(player.transform.position,currentLocation.position)<2.5f)
             {
                 actiontimer = 0f;
                 PlayerPrefs.SetFloat("score", PlayerPrefs.GetFloat("score") + 200f);
-            }
+            }*/
         }
         else if (action)
         {
@@ -83,4 +85,11 @@ public class MeetingBehaviour : MonoBehaviour
             action = false;
         }
     }
+
+    public void playerEntered()
+    {
+        actiontimer = 0f;
+        PlayerPrefs.SetFloat("score", PlayerPrefs.GetFloat("score") + 200f);
+    }
+
 }
