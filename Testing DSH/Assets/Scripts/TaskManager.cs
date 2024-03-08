@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class TaskManager : MonoBehaviour
 {
@@ -41,7 +42,7 @@ public class TaskManager : MonoBehaviour
 
 
     public Canvas endCanvas;
-    public CharacterController playerCharacterController;
+    public LocomotionSystem locomotionSystem;
     public TMP_Text endText;
     // public TMP_Text debug;
 
@@ -193,9 +194,9 @@ public class TaskManager : MonoBehaviour
      
     public void EndGame()
     {
-        playerCharacterController.enabled = false;
+        locomotionSystem.enabled = false;
         endCanvas.gameObject.SetActive(true);
         finished = true;
-        endText.text = String.Format("Your final score is: {0} points", PlayerPrefs.GetFloat("score").ToString());
+        endText.text = String.Format("Time is up! Your final score is: {0} points", PlayerPrefs.GetFloat("score").ToString());
     }
     }
