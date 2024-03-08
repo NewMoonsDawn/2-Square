@@ -167,7 +167,7 @@ public class TaskManager : MonoBehaviour
             {
                 //EndGame();
             }
-            timeText.text = string.Format("Time Remaining: {0}s", Mathf.FloorToInt(totalGameTime).ToString());
+            //timeText.text = string.Format("Time Remaining: {0}s", Mathf.FloorToInt(totalGameTime).ToString());
         }
 
     }
