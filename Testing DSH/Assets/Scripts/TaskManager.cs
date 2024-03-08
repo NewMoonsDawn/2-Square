@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
@@ -21,39 +22,55 @@ public class TaskManager : MonoBehaviour
 
     public TMP_Text scoreText;
 
+    public TMP_Text timeText;
+
+    [SerializeField]
+    public float totalGameTime;
+
     public Cup coffeeScript;
     public ScreenshotCamera screenshotCameraScript;
     public PlanTaskManager plantTaskScript;
     public GameObject videoEditting;
 
-   // public TMP_Text debug;
+    public AudioSource audioSource;
+    public AudioClip taskNotification;
+    public AudioClip taskComplete;
+
+    private bool startingBatch = true;
+    private bool finished = false;
+
+
+    public Canvas endCanvas;
+    public CharacterController playerCharacterController;
+    public TMP_Text endText;
+    // public TMP_Text debug;
 
 
 
-   /* private string task1;
-    private string task2;
-    private string task3;
-    private string task4;
-*/
+    /* private string task1;
+     private string task2;
+     private string task3;
+     private string task4;
+ */
     private string[] taskTexts;
 
     private Task task;
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         PlayerPrefs.SetFloat("score", 0f);
         Debug.Log(PlayerPrefs.GetString("name"));
         taskTexts = new string[expectedTasks];
-        for(int i =0;i<expectedTasks;i++)
+        for (int i = 0; i < expectedTasks; i++)
         {
             taskTexts[i] = "";
         }
 
         tasksList.Add(new Task(120f, "Question Picker", "Choose 5 of 10 questions to conduct an interview with!", 150f));
-        tasksList.Add(new Task(110f, "Plant Plants", "Find places around the buildings to place down plants!", 120f));
+        tasksList.Add(new Task(110f, "Plant Plants", "Find places around the building to place down plants!", 120f));
         tasksList.Add(new Task(130f, "Get a coffee", "Time for a break, go get some coffee!", 80f));
         tasksList.Add(new Task(115f, "Take pictures", "Take 4 pictures of the main areas", 200f));
         tasksList.Add(new Task(105f, "Video Editting", "", 180f));
-
         taskText.text = "";
         videoEditting.SetActive(false);
     }
@@ -61,100 +78,120 @@ public class TaskManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        scoreText.text = "Score: " + PlayerPrefs.GetFloat("score").ToString();
-        currentTasks = tasks.Count;
-        // if(tasksList.Count<expectedTasks-1)
-        // {
-        //   expectedTasks = tasksList.Count;
-        //}    
-
-       
-       if(currentTasks < expectedTasks && tasksList.Count !=0)
+        if (!finished)
         {
-            int random = UnityEngine.Random.Range(0,tasksList.Count);
-            task = tasksList[random];
-            tasks.Add(task);
-            tasksList.RemoveAt(random);
-                
-            switch (task.getName())
+            scoreText.text = "Score: " + PlayerPrefs.GetFloat("score").ToString();
+            currentTasks = tasks.Count;
+            // if(tasksList.Count<expectedTasks-1)
+            // {
+            //   expectedTasks = tasksList.Count;
+            //}    
+            if (currentTasks < expectedTasks && tasksList.Count != 0)
             {
-                case "Plant Plants":
-                    {
-                        plantTaskScript.enabled = true;
-                        break;
-                    }
-               case "Get a coffee":
-                    {
-                        coffeeScript.interactable = true;
-                        break;
-                    }
-               case "Take pictures":
-                    {
-                        screenshotCameraScript.interactable = true;
-                        break;
-                    }
-               case "Video Editting":
-                    {
-                        videoEditting.SetActive(true);
-                        break;
-                    }
+                int random = UnityEngine.Random.Range(0, tasksList.Count);
+                task = tasksList[random];
+                tasks.Add(task);
+                if (!startingBatch)
+                {
+                    audioSource.PlayOneShot(taskNotification, 1f);
+                }
+                else startingBatch = false;
+                tasksList.RemoveAt(random);
 
+                switch (task.getName())
+                {
+                    case "Plant Plants":
+                        {
+                            plantTaskScript.enabled = true;
+                            break;
+                        }
+                    case "Get a coffee":
+                        {
+                            coffeeScript.interactable = true;
+                            break;
+                        }
+                    case "Take pictures":
+                        {
+                            screenshotCameraScript.interactable = true;
+                            break;
+                        }
+                    case "Video Editting":
+                        {
+                            videoEditting.SetActive(true);
+                            break;
+                        }
+
+                }
+                currentTasks++;
             }
-            currentTasks++;
-        }
 
-       for(int i = 0; i < tasks.Count; i++)
-        {
-            
-            tasks[i].setTime(tasks[i].getTime() - Time.deltaTime);
-            if (tasks[i].getTime()<=0f)
+            for (int i = 0; i < tasks.Count; i++)
             {
-                Debug.Log(tasks[i].getName());
-                tasks.RemoveAt(i);
+
+                tasks[i].setTime(tasks[i].getTime() - Time.deltaTime);
+                if (tasks[i].getTime() <= 0f)
+                {
+                    Debug.Log(tasks[i].getName());
+                    tasks.RemoveAt(i);
+                }
             }
+
+            switch (tasks.Count)
+            {
+                case 0:
+                    {
+                        taskText.text = "You've completed all your tasks for the day! Sit back and relax!";
+                        break;
+                    }
+                case 1:
+                    {
+                        taskText.text = taskText.text = tasks[0].getName() + " : " + tasks[0].getDescription() + string.Format(" {0}s", Mathf.FloorToInt(tasks[0].getTime()).ToString());
+                        break;
+                    }
+                case 2:
+                    {
+                        taskText.text = tasks[0].getName() + " : " + tasks[0].getDescription() + string.Format(" {0}s", Mathf.FloorToInt(tasks[0].getTime()).ToString())
+                + System.Environment.NewLine + tasks[1].getName() + " : " + tasks[1].getDescription() + string.Format(" {0}s", Mathf.FloorToInt(tasks[1].getTime()).ToString());
+                        break;
+                    }
+                    /*case 3:
+                        {
+                            taskText.text = tasks[0].getName() + " : " + tasks[0].getDescription() + string.Format(" {0}:{1}", Mathf.FloorToInt(tasks[0].getTime() / 60).ToString(), Mathf.FloorToInt(tasks[0].getTime() % 60).ToString())
+                    + System.Environment.NewLine + tasks[1].getName() + " : " + tasks[1].getDescription() + string.Format(" {0}:{1}", Mathf.FloorToInt(tasks[1].getTime() / 60).ToString(), Mathf.FloorToInt(tasks[1].getTime() % 60).ToString())
+                    + System.Environment.NewLine + tasks[2].getName() + " : " + tasks[2].getDescription() + string.Format(" {0}:{1}", Mathf.FloorToInt(tasks[2].getTime() / 60).ToString(), Mathf.FloorToInt(tasks[2].getTime() % 60).ToString());
+                            break;
+                        */
+            }
+            totalGameTime -= Time.deltaTime;
+            if (totalGameTime <= 0f)
+            {
+                //EndGame();
+            }
+            timeText.text = string.Format("Time Remaining: {0}s", Mathf.FloorToInt(totalGameTime).ToString());
         }
-        
-       switch(tasks.Count)
-        { 
-            case 0:
-                {
-                    taskText.text = "You've completed all your tasks for the day! Sit back and relax!";
-                    break;
-                }
-            case 1:
-                {
-                    taskText.text = taskText.text = tasks[0].getName() + " : " + tasks[0].getDescription() + string.Format(" {0}:{1}", Mathf.FloorToInt(tasks[0].getTime() / 60).ToString(), Mathf.FloorToInt(tasks[0].getTime() % 60).ToString());
-                    break;
-                }
-            case 2:
-                {
-                    taskText.text = tasks[0].getName() + " : " + tasks[0].getDescription() + string.Format(" {0}:{1}", Mathf.FloorToInt(tasks[0].getTime() / 60).ToString(), Mathf.FloorToInt(tasks[0].getTime() % 60).ToString())
-            + System.Environment.NewLine + tasks[1].getName() + " : " + tasks[1].getDescription() + string.Format(" {0}:{1}", Mathf.FloorToInt(tasks[1].getTime() / 60).ToString(), Mathf.FloorToInt(tasks[1].getTime() % 60).ToString());
-                    break;
-                }
-            /*case 3:
-                {
-                    taskText.text = tasks[0].getName() + " : " + tasks[0].getDescription() + string.Format(" {0}:{1}", Mathf.FloorToInt(tasks[0].getTime() / 60).ToString(), Mathf.FloorToInt(tasks[0].getTime() % 60).ToString())
-            + System.Environment.NewLine + tasks[1].getName() + " : " + tasks[1].getDescription() + string.Format(" {0}:{1}", Mathf.FloorToInt(tasks[1].getTime() / 60).ToString(), Mathf.FloorToInt(tasks[1].getTime() % 60).ToString())
-            + System.Environment.NewLine + tasks[2].getName() + " : " + tasks[2].getDescription() + string.Format(" {0}:{1}", Mathf.FloorToInt(tasks[2].getTime() / 60).ToString(), Mathf.FloorToInt(tasks[2].getTime() % 60).ToString());
-                    break;
-                */}
-        
-        }
+
+    }
 
     public void taskEnd(string taskName)
     {
-        for (int i = 0;i<tasks.Count;i++)
+        for (int i = 0; i < tasks.Count; i++)
         {
             if (tasks[i].getName() == taskName)
             {
                 //debug.text = "task complete" + taskName;
-                
+
                 PlayerPrefs.SetFloat("score", PlayerPrefs.GetFloat("score") + tasks[i].getPoints());
+                audioSource.PlayOneShot(taskComplete, 1f);
                 tasks.RemoveAt(i);
             }
         }
     }
-        
+     
+    public void EndGame()
+    {
+        playerCharacterController.enabled = false;
+        endCanvas.enabled = true;
+        finished = true;
+        endText.text = String.Format("Your final score is: {0} points", PlayerPrefs.GetFloat("score").ToString());
+    }
     }

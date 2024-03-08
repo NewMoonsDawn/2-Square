@@ -28,12 +28,17 @@ public class MeetingBehaviour : MonoBehaviour
 
     private Color transparent = new Color(255,255,255,0f);
 
+    public AudioSource audioSource;
+    public AudioClip sucess;
+    public AudioClip spawnSound;
+
     //TODO FINAL MESSAGE
     public string meetingQuestMessage = "There is an important meeting going on! Find and attend it, quick!";
 
     // Start is called before the first frame update
     void Start()
     {
+        audioSource= GetComponent<AudioSource>();
         children = transform.childCount;
         spawnLocations = new Transform[children];
         spawntimer = spawntime;
@@ -58,6 +63,7 @@ public class MeetingBehaviour : MonoBehaviour
         }
         else if (!action)
         {
+            audioSource.PlayOneShot(spawnSound,1f);
             action = true;
             currentLocation = spawnLocations[UnityEngine.Random.Range(0, children)];
             currentLocation.GetComponent<Renderer>().enabled = true;
@@ -88,6 +94,7 @@ public class MeetingBehaviour : MonoBehaviour
 
     public void playerEntered()
     {
+        audioSource.PlayOneShot(sucess, 1f);
         actiontimer = 0f;
         PlayerPrefs.SetFloat("score", PlayerPrefs.GetFloat("score") + 200f);
     }
