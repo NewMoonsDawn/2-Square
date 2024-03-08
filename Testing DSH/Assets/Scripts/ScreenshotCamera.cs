@@ -48,7 +48,7 @@ public class ScreenshotCamera : MonoBehaviour
     void Update()
     {
         if (!interactable) return;
-        //if (isOn && Input.GetButtonDown("XRI_Left_SecondaryButton")) { StartCoroutine(TakeScreenshot()); }
+        //if (isOn && Input.GetButtonDown("VR")) { StartCoroutine(TakeScreenshot()); }
 
         // Change input to VR input
         if (Input.GetButtonDown("VR")) { StartCoroutine(TakeScreenshot()); }
@@ -56,9 +56,7 @@ public class ScreenshotCamera : MonoBehaviour
 
     private IEnumerator TakeScreenshot()
     {
-        // Raycast
-        RaycastHit hit;
-        // Does the ray intersect any objects excluding the player layer
+        // If in area
         if (area)
         {
             string screenshotName = "photo" + screenshotsTaken + ".png";
@@ -96,10 +94,8 @@ public class ScreenshotCamera : MonoBehaviour
             System.IO.File.WriteAllBytes(filename, bytes);
             Debug.Log(string.Format("Took screenshot to: {0}", filename));
 
-            if (screenshotsTaken >= 4)
-            {
-                taskManager.taskEnd("Take pictures");
-            }
+            if (screenshotsTaken >= 4) taskManager.taskEnd("Take pictures");
+
             Destroy(area.gameObject);
             area = null;
         }
