@@ -69,7 +69,7 @@ public class TaskManager : MonoBehaviour
         tasksList.Add(new Task(120f, "Question Picker", "Choose 5 of 10 questions to conduct an interview with!", 150f));
         tasksList.Add(new Task(110f, "Plant Plants", "Find places around the building to place down plants!", 120f));
         tasksList.Add(new Task(130f, "Get a coffee", "Time for a break, go get some coffee!", 80f));
-        tasksList.Add(new Task(115f, "Take pictures", "Take 4 pictures of the main areas", 200f));
+        tasksList.Add(new Task(115f, "Take pictures", "Take a video of the main areas", 200f));
         tasksList.Add(new Task(105f, "Video Editting", "", 180f));
         taskText.text = "";
         videoEditting.SetActive(false);

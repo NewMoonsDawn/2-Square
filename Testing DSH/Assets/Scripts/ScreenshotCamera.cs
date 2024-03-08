@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.XR;
 
 public class ScreenshotCamera : MonoBehaviour
 {
@@ -23,6 +25,7 @@ public class ScreenshotCamera : MonoBehaviour
     public bool isOn;
     public AudioSource playerSource;
 
+    float timeLeft = 10;
     private Camera cam;
 
     private void Start()
@@ -45,13 +48,24 @@ public class ScreenshotCamera : MonoBehaviour
 #endif
     }
 
-    void Update()
+    private void Update()
     {
-        if (!interactable) return;
-        //if (isOn && Input.GetButtonDown("VR")) { StartCoroutine(TakeScreenshot()); }
+        if (isOn)
+        {
+            if (timeLeft > 0) timeLeft -= Time.deltaTime;
+            else
+            {
+                taskManager.taskEnd("Take pictures");
+                timeLeft = 99999;
+            }
+        }
+    }
 
-        // Change input to VR input
-        if (Input.GetButtonDown("VR")) { StartCoroutine(TakeScreenshot()); }
+    public void TakePhoto(InputAction.CallbackContext context)
+    {
+        //if (!interactable || !isOn) return;
+        StartCoroutine(TakeScreenshot());
+        gameObject.SetActive(false);
     }
 
     private IEnumerator TakeScreenshot()
@@ -93,8 +107,6 @@ public class ScreenshotCamera : MonoBehaviour
             string filename = Application.dataPath + "/Resources/CameraScreenshots/" + screenshotName;
             System.IO.File.WriteAllBytes(filename, bytes);
             Debug.Log(string.Format("Took screenshot to: {0}", filename));
-
-            if (screenshotsTaken >= 4) taskManager.taskEnd("Take pictures");
 
             Destroy(area.gameObject);
             area = null;
