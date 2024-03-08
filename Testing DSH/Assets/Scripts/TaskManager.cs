@@ -94,6 +94,7 @@ public class TaskManager : MonoBehaviour
                 if (!startingBatch)
                 {
                     audioSource.PlayOneShot(taskNotification, 1f);
+
                 }
                 else startingBatch = false;
                 tasksList.RemoveAt(random);
@@ -162,12 +163,15 @@ public class TaskManager : MonoBehaviour
                             break;
                         */
             }
-            totalGameTime -= Time.deltaTime;
+            if (totalGameTime > 0f)
+            {
+                totalGameTime -= Time.deltaTime;
+            }
             if (totalGameTime <= 0f)
             {
-                //EndGame();
+                EndGame();
             }
-            //timeText.text = string.Format("Time Remaining: {0}s", Mathf.FloorToInt(totalGameTime).ToString());
+           timeText.text = string.Format("Time Remaining: {0}s", Mathf.FloorToInt(totalGameTime).ToString());
         }
 
     }
@@ -190,7 +194,7 @@ public class TaskManager : MonoBehaviour
     public void EndGame()
     {
         playerCharacterController.enabled = false;
-        endCanvas.enabled = true;
+        endCanvas.gameObject.SetActive(true);
         finished = true;
         endText.text = String.Format("Your final score is: {0} points", PlayerPrefs.GetFloat("score").ToString());
     }
