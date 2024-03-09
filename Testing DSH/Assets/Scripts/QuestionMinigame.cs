@@ -9,7 +9,7 @@ public class QuestionMinigame : MonoBehaviour
     public TextMeshProUGUI yesButtonText;
     public TextMeshProUGUI noButtonText;
 
-    private string[] questions = new string[10]; // Assuming you have 10 questions
+    private string[] questions = new string[11]; // Assuming you have 10 questions
     private int selectedCount = 0;
     private int currentQuestionIndex = 0;
     [SerializeField]
