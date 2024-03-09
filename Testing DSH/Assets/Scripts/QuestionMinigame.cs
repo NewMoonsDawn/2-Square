@@ -12,6 +12,8 @@ public class QuestionMinigame : MonoBehaviour
     private string[] questions = new string[10]; // Assuming you have 10 questions
     private int selectedCount = 0;
     private int currentQuestionIndex = 0;
+    [SerializeField]
+    public int expectedSelected = 5;
 
     void Start()
     {
@@ -22,16 +24,19 @@ public class QuestionMinigame : MonoBehaviour
     void InitializeQuestions()
     {
         // Assuming you have predefined questions
-        questions[0] = "Question 1";
-        questions[1] = "Question 2";
-        questions[2] = "Question 3";
-        questions[3] = "Question 4";
-        questions[4] = "Question 5";
-        questions[5] = "Question 6";
-        questions[6] = "Question 7";
-        questions[7] = "Question 8";
-        questions[8] = "Question 9";
-        questions[9] = "Question 10";
+
+        questions[0] = "Hello Intern! You have to pick 5 out the 10 questions shown to you. Best of luck! " +
+            "Its for an interview we have tomorrow with Corian.";
+        questions[1] = "What can the DSH help you with?";
+        questions[2] = "What are you looking for the DSH to help with?";
+        questions[3] = "What type of Business are you?";
+        questions[4] = "Do you know what the DSH does?";
+        questions[5] = "How long will the partnership take?";
+        questions[6] = "How do interns help grow the DSH?";
+        questions[7] = "As an intern do you get a lot of tasks?";
+        questions[8] = "Was your first day as an intern successful?";
+        questions[9] = " Doing an internship at the DSH helps with?";
+        questions[10] = "What is your connection with DSH?";
     }
 
     void DisplayCurrentQuestion()
@@ -63,6 +68,35 @@ public class QuestionMinigame : MonoBehaviour
         }
 
         // Display the next question
+        DisplayCurrentQuestion();
+        
+    }
+    public void YesButton ()
+    {
+        if (currentQuestionIndex != 0)
+        {
+            selectedCount++;
+        }
+        if(selectedCount>=expectedSelected)
+        {
+            //TODO end minigame
+            Debug.Log("game end");
+        }
+        currentQuestionIndex++;
+        if(currentQuestionIndex==10 && selectedCount<5)
+        {
+            currentQuestionIndex = 0;
+        }
+        DisplayCurrentQuestion();
+    }
+
+    public void NoButton()
+    {
+        currentQuestionIndex++;
+        if (currentQuestionIndex == 10 && selectedCount < 5)
+        {
+            currentQuestionIndex = 0;
+        }
         DisplayCurrentQuestion();
     }
 
