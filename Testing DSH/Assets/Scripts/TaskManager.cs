@@ -71,11 +71,11 @@ public class TaskManager : MonoBehaviour
             taskTexts[i] = "";
         }
 
-        tasksList.Add(new Task(120f, "Interview Setup", "Choose 5 of 10 questions to conduct an interview with!", 150f));
-        tasksList.Add(new Task(110f, "Plant Plants", "Find places around the building to place down plants!", 120f));
-        tasksList.Add(new Task(130f, "Get a coffee", "Time for a break, go get some coffee!", 80f));
-        tasksList.Add(new Task(115f, "Take pictures", "Take a video of the main areas", 200f));
-        tasksList.Add(new Task(105f, "Video Editting", "", 180f));
+        tasksList.Add(new Task(120f, "Interview Setup", "Go to your computer at the end of the lounge area and set up your interview questions!", 350f));
+        tasksList.Add(new Task(110f, "Plant Plants", "People said they wanted more plants around the buildings. Find appropriate places and plant some plants!", 120f));
+        tasksList.Add(new Task(130f, "Get a Coffee", "Time for a break, go get some coffee from the cafeteria!", 80f));
+        tasksList.Add(new Task(115f, "Take Pictures", "We've left you a tablet on the large orange table in the lounge, record a 10 second video with it!", 200f));
+        tasksList.Add(new Task(105f, "Video Editting", "Room 0.39, attach the video blocks correctly by grabbing them and putting them into place.", 180f));
         taskText.text = "";
         videoEditting.SetActive(false);
     }
@@ -111,12 +111,12 @@ public class TaskManager : MonoBehaviour
                             plantTaskScript.enabled = true;
                             break;
                         }
-                    case "Get a coffee":
+                    case "Get a Coffee":
                         {
                             coffeeScript.interactable = true;
                             break;
                         }
-                    case "Take pictures":
+                    case "Take Pictures":
                         {
                             screenshotCameraScript.interactable = true;
                             break;

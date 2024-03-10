@@ -55,7 +55,7 @@ public class ScreenshotCamera : MonoBehaviour
             if (timeLeft > 0) timeLeft -= Time.deltaTime;
             else
             {
-                taskManager.taskEnd("Take pictures");
+                taskManager.taskEnd("Take Pictures");
                 timeLeft = 99999;
             }
         }

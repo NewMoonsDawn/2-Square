@@ -15,7 +15,7 @@ public class Consumer : MonoBehaviour
             cup.fillTransform.localPosition = Vector3.zero;
             print("Here");
             PlayerPrefs.SetFloat("score", PlayerPrefs.GetFloat("score") + 250f);
-            taskManager.taskEnd("Get a coffee");
+            taskManager.taskEnd("Get a Coffee");
         }
     }
 }
