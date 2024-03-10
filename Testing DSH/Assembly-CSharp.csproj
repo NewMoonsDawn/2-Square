@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Coffee.cs" />
     <Compile Include="Assets\Scripts\EditingZone.cs" />
+    <Compile Include="Assets\Scripts\ObjectMovement.cs" />
     <Compile Include="Assets\Hands\XRPlatformControllerSetup.cs" />
     <Compile Include="Assets\Scripts\MainMenuButtons.cs" />
     <Compile Include="Assets\Scripts\VideoSnap.cs" />
