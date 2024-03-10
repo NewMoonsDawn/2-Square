@@ -94,7 +94,7 @@ public class MeetingBehaviour : MonoBehaviour
 
     public void playerEntered()
     {
-        audioSource.PlayOneShot(sucess, 0.6f);
+        audioSource.PlayOneShot(sucess, 0.3f);
         actiontimer = 0f;
         PlayerPrefs.SetFloat("score", PlayerPrefs.GetFloat("score") + 200f);
     }

@@ -7,6 +7,7 @@ public class ObjectMovement : MonoBehaviour
     public GameObject laptopSolid;
     public GameObject laptop;
     public GameObject highlight;
+    public TaskManager taskManager;
 
     private Rigidbody laptopRigidbody;
     private bool isMoving = false;
@@ -22,6 +23,7 @@ public class ObjectMovement : MonoBehaviour
         {
             isMoving = true;
             highlight.SetActive(true);
+            laptopTranslucent.SetActive(true);
         }
     }
 
@@ -37,11 +39,11 @@ public class ObjectMovement : MonoBehaviour
             {
                 go.SetActive(false);
             }
-            laptopTranslucent.SetActive(false);
             laptopSolid.SetActive(true);
             laptop.SetActive(false);
             highlight.SetActive(false);
-            //task complete logic
+
+            taskManager.taskEnd("Lost Laptop");
         }
     }
 }

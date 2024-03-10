@@ -34,6 +34,7 @@ public class TaskManager : MonoBehaviour
     public PlanTaskManager plantTaskScript;
     public GameObject videoEditting;
     public Canvas interviewMinigame;
+    public GameObject lostLaptop;
 
     [Header("Audio")]
     public AudioSource audioSource;
@@ -73,9 +74,10 @@ public class TaskManager : MonoBehaviour
 
         tasksList.Add(new Task(120f, "Interview Setup", "Go to your computer at the end of the lounge area and set up your interview questions!", 350f));
         tasksList.Add(new Task(110f, "Plant Plants", "People said they wanted more plants around the buildings. Find appropriate places and plant some plants!", 120f));
-        tasksList.Add(new Task(130f, "Get a Coffee", "Time for a break, go get some coffee from the cafeteria!", 80f));
+        tasksList.Add(new Task(130f, "Get a Coffee", "Time for a break, go get some coffee from the cafeteria!", 100f));
         tasksList.Add(new Task(115f, "Take Pictures", "We've left you a tablet on the large orange table in the lounge, record a 10 second video with it!", 200f));
         tasksList.Add(new Task(105f, "Video Editting", "Room 0.39, attach the video blocks correctly by grabbing them and putting them into place.", 180f));
+        tasksList.Add(new Task(90f, "Lost Laptop", "Oops! You've lost your white laptop somewhere in the lounge. Find it and bring it back to 0.40!", 150f));
         taskText.text = "";
         videoEditting.SetActive(false);
     }
@@ -129,6 +131,11 @@ public class TaskManager : MonoBehaviour
                     case "Interview Setup":
                         {
                             interviewMinigame.gameObject.SetActive(true);
+                            break;
+                        }
+                    case "Lost Laptop":
+                        {
+                            lostLaptop.SetActive(true);
                             break;
                         }
 
