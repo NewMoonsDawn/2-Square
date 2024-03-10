@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class QuestionMinigame : MonoBehaviour
 {
     public TextMeshProUGUI questionText;
-    public TextMeshProUGUI yesButtonText;
-    public TextMeshProUGUI noButtonText;
+    public Button yesButton;
+    public Button noButton;
 
     private string[] questions = new string[11]; // Assuming you have 10 questions
     private int selectedCount = 0;
@@ -15,6 +16,10 @@ public class QuestionMinigame : MonoBehaviour
     [SerializeField]
     public int expectedSelected = 5;
 
+    public TaskManager taskManager;
+    public List<string> answers = new List<string>();
+    private string finalPopup = "Your selected questions are: " + System.Environment.NewLine;
+    private bool finished = false;
     void Start()
     {
         InitializeQuestions();
@@ -25,18 +30,17 @@ public class QuestionMinigame : MonoBehaviour
     {
         // Assuming you have predefined questions
 
-        questions[0] = "Hello Intern! You have to pick 5 out the 10 questions shown to you. Best of luck! " +
-            "Its for an interview we have tomorrow with Corian.";
-        questions[1] = "What can the DSH help you with?";
-        questions[2] = "What are you looking for the DSH to help with?";
-        questions[3] = "What type of Business are you?";
-        questions[4] = "Do you know what the DSH does?";
-        questions[5] = "How long will the partnership take?";
-        questions[6] = "How do interns help grow the DSH?";
-        questions[7] = "As an intern do you get a lot of tasks?";
-        questions[8] = "Was your first day as an intern successful?";
-        questions[9] = " Doing an internship at the DSH helps with?";
-        questions[10] = "What is your connection with DSH?";
+        questions[0] = "Hello Intern! You have to pick 5 out the 10 questions shown to you for an interview we have tomorrow with a possible intern. Best of luck! ";
+        questions[1] = "Who are you?";
+        questions[2] = "What would you say your main skills are?";
+        questions[3] = "Why are you interested in working for us?";
+        questions[4] = "What was your name again?";
+        questions[5] = "Tell me about yourself.";
+        questions[6] = "What do you know about the DSH?";
+        questions[7] = "Is there a DSH project that caught your interest?";
+        questions[8] = "Why did you bother coming?";
+        questions[9] = "Would you be willing to deliver me coffee as part of your internship?";
+        questions[10] = "What can this position help you learn?";
     }
 
     void DisplayCurrentQuestion()
@@ -76,26 +80,37 @@ public class QuestionMinigame : MonoBehaviour
         if (currentQuestionIndex != 0)
         {
             selectedCount++;
+            answers.Add(questions[currentQuestionIndex]);
         }
         if(selectedCount>=expectedSelected)
         {
-            //TODO end minigame
-            Debug.Log("game end");
+            taskManager.taskEnd("Interview Setup");
+            foreach(var answer in answers)
+            {
+                finalPopup += answer.ToString() + System.Environment.NewLine;
+            }
+            questionText.text = finalPopup;
+            yesButton.gameObject.SetActive(false);
+            noButton.gameObject.SetActive(false);
+            finished = true;
         }
         currentQuestionIndex++;
-        if(currentQuestionIndex==10 && selectedCount<5)
+        if(currentQuestionIndex==11 && selectedCount<5)
         {
             currentQuestionIndex = 0;
+            answers.Clear();
         }
+        if(!finished)
         DisplayCurrentQuestion();
     }
 
     public void NoButton()
     {
         currentQuestionIndex++;
-        if (currentQuestionIndex == 10 && selectedCount < 5)
+        if (currentQuestionIndex == 11 && selectedCount < 5)
         {
             currentQuestionIndex = 0;
+            answers.Clear();
         }
         DisplayCurrentQuestion();
     }

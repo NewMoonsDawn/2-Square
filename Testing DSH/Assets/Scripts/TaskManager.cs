@@ -28,15 +28,19 @@ public class TaskManager : MonoBehaviour
     [SerializeField]
     public float totalGameTime;
 
+    [Header("Minigame Attachments")]
     public Cup coffeeScript;
     public ScreenshotCamera screenshotCameraScript;
     public PlanTaskManager plantTaskScript;
     public GameObject videoEditting;
+    public Canvas interviewMinigame;
 
+    [Header("Audio")]
     public AudioSource audioSource;
     public AudioClip taskNotification;
     public AudioClip taskComplete;
 
+    [Header("End Screen Attachments")]
     private bool startingBatch = true;
     private bool finished = false;
 
@@ -67,7 +71,7 @@ public class TaskManager : MonoBehaviour
             taskTexts[i] = "";
         }
 
-        tasksList.Add(new Task(120f, "Question Picker", "Choose 5 of 10 questions to conduct an interview with!", 150f));
+        tasksList.Add(new Task(120f, "Interview Setup", "Choose 5 of 10 questions to conduct an interview with!", 150f));
         tasksList.Add(new Task(110f, "Plant Plants", "Find places around the building to place down plants!", 120f));
         tasksList.Add(new Task(130f, "Get a coffee", "Time for a break, go get some coffee!", 80f));
         tasksList.Add(new Task(115f, "Take pictures", "Take a video of the main areas", 200f));
@@ -120,6 +124,11 @@ public class TaskManager : MonoBehaviour
                     case "Video Editting":
                         {
                             videoEditting.SetActive(true);
+                            break;
+                        }
+                    case "Interview Setup":
+                        {
+                            interviewMinigame.gameObject.SetActive(true);
                             break;
                         }
 
