@@ -110,7 +110,7 @@ public class TaskManager : MonoBehaviour
                 {
                     case "Plant Plants":
                         {
-                            plantTaskScript.enabled = true;
+                            plantTaskScript.gameObject.SetActive(true);
                             break;
                         }
                     case "Get a Coffee":
