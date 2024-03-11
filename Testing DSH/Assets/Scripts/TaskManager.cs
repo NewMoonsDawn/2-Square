@@ -16,8 +16,7 @@ public class TaskManager : MonoBehaviour
     [SerializeField]
     private int expectedTasks = 2;
 
-    [SerializeField]
-    public List<Task> tasksList = new List<Task>();
+    private List<Task> tasksList = new List<Task>();
     private List<Task> tasks = new List<Task>();
 
     public TMP_Text taskText;
@@ -111,8 +110,7 @@ public class TaskManager : MonoBehaviour
                 {
                     case "Plant Plants":
                         {
-                            plantTaskScript.gameObject.SetActive(true);
-                            Debug.Log("plants enabled");
+                            plantTaskScript.enabled = true;
                             break;
                         }
                     case "Get a Coffee":
