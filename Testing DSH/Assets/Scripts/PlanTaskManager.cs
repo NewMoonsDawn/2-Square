@@ -10,6 +10,7 @@ public class PlanTaskManager : MonoBehaviour
     public int expectedLocations = 3;
     public GameObject player;
     public TaskManager taskManager;
+    private bool finished = false;
 
     // Start is called before the first frame update
     private void OnEnable()
@@ -43,7 +44,7 @@ public class PlanTaskManager : MonoBehaviour
     {
         for (int i = 0; i < selectedLocations.Count; i++)
         {
-            if (Vector3.Distance(player.transform.position, selectedLocations[i].position) < 1.5f) //&& Input.GetButtonDown("XRI_Left_SecondaryButton"))
+            if (Vector3.Distance(player.transform.position, selectedLocations[i].position) < 2f) //&& Input.GetButtonDown("XRI_Left_SecondaryButton"))
             {
                 /*Color temp = selectedLocations[i].GetComponent<Renderer>().material.color;
                 temp.a = 1f;
@@ -54,10 +55,11 @@ public class PlanTaskManager : MonoBehaviour
                 selectedLocations.RemoveAt(i);
             }
         }
-        if (selectedLocations.Count == 0)
+        if (selectedLocations.Count == 0 && !finished)
         {
             PlayerPrefs.SetFloat("score", PlayerPrefs.GetFloat("score") + 500f);
             taskManager.taskEnd("Plant Plants");
+            finished = true;
         }
     }
 }

@@ -15,16 +15,8 @@ public class ObjectMovement : MonoBehaviour
     private void Start()
     {
         laptopRigidbody = laptop.GetComponent<Rigidbody>();
-    }
-
-    private void Update()
-    {
-        if (laptopRigidbody.velocity.magnitude > 2f)
-        {
-            isMoving = true;
-            highlight.SetActive(true);
-            laptopTranslucent.SetActive(true);
-        }
+        highlight.SetActive(true);
+        laptopTranslucent.SetActive(true);
     }
 
     private void OnTriggerEnter(Collider other)

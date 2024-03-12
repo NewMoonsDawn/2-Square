@@ -47,7 +47,7 @@ public class MeetingBehaviour : MonoBehaviour
         {
             spawnLocations[i] = transform.GetChild(i);
             spawnLocations[i].AddComponent<MeetingBlock>();
-            spawnLocations[i].GetComponent<Renderer>().enabled = false;
+            spawnLocations[i].gameObject.SetActive(false);
             Debug.Log(spawnLocations[i].name);
         }
 
@@ -66,7 +66,7 @@ public class MeetingBehaviour : MonoBehaviour
             audioSource.PlayOneShot(spawnSound,1f);
             action = true;
             currentLocation = spawnLocations[UnityEngine.Random.Range(0, children)];
-            currentLocation.GetComponent<Renderer>().enabled = true;
+            currentLocation.gameObject.SetActive(true);
             currentLocation.GetComponent<Renderer>().material.color = Color.green;
             actionUI.transform.parent.gameObject.SetActive(true);
             actiontimer = actiontime;
