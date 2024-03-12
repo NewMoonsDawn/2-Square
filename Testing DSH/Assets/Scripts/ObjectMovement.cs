@@ -21,7 +21,7 @@ public class ObjectMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("TriggerObject") && isMoving)
+        if (other.CompareTag("TriggerObject"))
         {
             Debug.Log("Works");
 
