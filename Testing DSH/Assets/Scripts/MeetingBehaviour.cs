@@ -32,7 +32,6 @@ public class MeetingBehaviour : MonoBehaviour
     public AudioClip sucess;
     public AudioClip spawnSound;
 
-    //TODO FINAL MESSAGE
     public string meetingQuestMessage = "There is an important meeting going on! Find and attend it, quick!";
 
     // Start is called before the first frame update
