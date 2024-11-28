@@ -63,17 +63,7 @@ public class MeetingBehaviour : MonoBehaviour
         }
         else if (!action)
         {
-<<<<<<< Updated upstream
-            audioSource.PlayOneShot(spawnSound,1f);
-            action = true;
-            currentLocation = spawnLocations[UnityEngine.Random.Range(0, children)];
-            currentLocation.gameObject.SetActive(true);
-            currentLocation.GetComponent<Renderer>().material.color = Color.green;
-            actionUI.transform.parent.gameObject.SetActive(true);
-            actiontimer = actiontime;
-=======
             ActivateBlock();
->>>>>>> Stashed changes
         }
 
         if(actiontimer> 0f) 

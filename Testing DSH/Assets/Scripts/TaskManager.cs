@@ -95,56 +95,7 @@ public class TaskManager : MonoBehaviour
             //}    
             if (currentTasks < expectedTasks && tasksList.Count != 0)
             {
-<<<<<<< Updated upstream
-                int random = UnityEngine.Random.Range(0, tasksList.Count);
-                task = tasksList[random];
-                tasks.Add(task);
-                if (!startingBatch)
-                {
-                    audioSource.PlayOneShot(taskNotification, 1f);
-
-                }
-                else startingBatch = false;
-                tasksList.RemoveAt(random);
-
-                switch (task.getName())
-                {
-                    case "Plant Plants":
-                        {
-                            plantTaskScript.gameObject.SetActive(true);
-                            break;
-                        }
-                    case "Get a Coffee":
-                        {
-                            coffeeScript.interactable = true;
-                            break;
-                        }
-                    case "Take Video":
-                        {
-                            screenshotCameraScript.interactable = true;
-                            break;
-                        }
-                    case "Video Editting":
-                        {
-                            videoEditting.SetActive(true);
-                            break;
-                        }
-                    case "Interview Setup":
-                        {
-                            interviewMinigame.gameObject.SetActive(true);
-                            break;
-                        }
-                    case "Lost Laptop":
-                        {
-                            lostLaptop.SetActive(true);
-                            break;
-                        }
-
-                }
-                currentTasks++;
-=======
                 GetNewTask();
->>>>>>> Stashed changes
             }
             //Tick down time, then remove any task without any remaining time.
             for (int i = 0; i < tasks.Count; i++)
