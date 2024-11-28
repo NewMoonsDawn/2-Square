@@ -63,6 +63,7 @@ public class MeetingBehaviour : MonoBehaviour
         }
         else if (!action)
         {
+<<<<<<< Updated upstream
             audioSource.PlayOneShot(spawnSound,1f);
             action = true;
             currentLocation = spawnLocations[UnityEngine.Random.Range(0, children)];
@@ -70,6 +71,9 @@ public class MeetingBehaviour : MonoBehaviour
             currentLocation.GetComponent<Renderer>().material.color = Color.green;
             actionUI.transform.parent.gameObject.SetActive(true);
             actiontimer = actiontime;
+=======
+            ActivateBlock();
+>>>>>>> Stashed changes
         }
 
         if(actiontimer> 0f) 
@@ -84,11 +88,7 @@ public class MeetingBehaviour : MonoBehaviour
         }
         else if (action)
         {
-            spawntimer = spawntime;
-            //currentLocation.GetComponent<Renderer>().material.color = transparent;
-            currentLocation.GetComponent<Renderer>().enabled = false;
-            actionUI.transform.parent.gameObject.SetActive(false);
-            action = false;
+            DeactivateBlock();
         }
     }
 
@@ -97,6 +97,25 @@ public class MeetingBehaviour : MonoBehaviour
         audioSource.PlayOneShot(sucess, 0.3f);
         actiontimer = 0f;
         PlayerPrefs.SetFloat("score", PlayerPrefs.GetFloat("score") + 200f);
+    }
+
+    public void ActivateBlock()
+    {
+        audioSource.PlayOneShot(spawnSound, 1f);
+        action = true;
+        currentLocation = spawnLocations[UnityEngine.Random.Range(0, children)];
+        currentLocation.GetComponent<Renderer>().enabled = true;
+        currentLocation.GetComponent<Renderer>().material.color = Color.green;
+        actionUI.transform.parent.gameObject.SetActive(true);
+        actiontimer = actiontime;
+    }
+    public void DeactivateBlock()
+    {
+        spawntimer = spawntime;
+        //currentLocation.GetComponent<Renderer>().material.color = transparent;
+        currentLocation.GetComponent<Renderer>().enabled = false;
+        actionUI.transform.parent.gameObject.SetActive(false);
+        action = false;
     }
 
 }
